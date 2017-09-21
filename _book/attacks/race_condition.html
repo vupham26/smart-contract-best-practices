@@ -1,0 +1,798 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Race Condition · smart-contract-best-practices</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Consensus System LLC">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="race_condition.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://github.com/ConsenSys/smart-contract-best-practices" target="_blank" class="custom-link">Contact us</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../general/">
+            
+                <a href="../general/">
+            
+                    
+                    General Philosophy
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../general/philosophy.html">
+            
+                <a href="../general/philosophy.html">
+            
+                    
+                    Developement philosophy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../general/tradeoffs.html">
+            
+                <a href="../general/tradeoffs.html">
+            
+                    
+                    Fundamental Tradeoffs
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../tips/">
+            
+                <a href="../tips/">
+            
+                    
+                    Solidity Security Tips
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../tips/external_call.html">
+            
+                <a href="../tips/external_call.html">
+            
+                    
+                    External Call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../tips/assert.html">
+            
+                <a href="../tips/assert.html">
+            
+                    
+                    Assert
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../tips/eth.html">
+            
+                <a href="../tips/eth.html">
+            
+                    
+                    ETH/Balance Related
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../tips/contract_design.html">
+            
+                <a href="../tips/contract_design.html">
+            
+                    
+                    Contract Design
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../tips/data_type.html">
+            
+                <a href="../tips/data_type.html">
+            
+                    
+                    Data Type Related
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../tips/style.html">
+            
+                <a href="../tips/style.html">
+            
+                    
+                    Style
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../tips/miscellaneous.html">
+            
+                <a href="../tips/miscellaneous.html">
+            
+                    
+                    Miscellaneous
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Known Attacks
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.4.1" data-path="race_condition.html">
+            
+                <a href="race_condition.html">
+            
+                    
+                    Race Condition
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="race_condition.html">
+            
+                <a href="race_condition.html#reentrancy">
+            
+                    
+                    Reentrancy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.2" data-path="race_condition.html">
+            
+                <a href="race_condition.html#transaction-ordering-dependence">
+            
+                    
+                    Transaction Ordering Dependence
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="gas_related_attacks.html">
+            
+                <a href="gas_related_attacks.html">
+            
+                    
+                    Gas Related Attacks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="overflow_underflow.html">
+            
+                <a href="overflow_underflow.html">
+            
+                    
+                    Overflow/Underflow
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="deprecated_attacks.html">
+            
+                <a href="deprecated_attacks.html">
+            
+                    
+                    Deprecated Attacks
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../techniques/">
+            
+                <a href="../techniques/">
+            
+                    
+                    Software Engineering Techniques
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../techniques/upgrade_contract.html">
+            
+                <a href="../techniques/upgrade_contract.html">
+            
+                    
+                    Upgrading Broken Contracts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../techniques/pause_contract.html">
+            
+                <a href="../techniques/pause_contract.html">
+            
+                    
+                    Circuit Breakers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../techniques/speed_bump.html">
+            
+                <a href="../techniques/speed_bump.html">
+            
+                    
+                    Speed Bumps
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../techniques/limit_rate.html">
+            
+                <a href="../techniques/limit_rate.html">
+            
+                    
+                    Rate Limiting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../techniques/contract_rollout.html">
+            
+                <a href="../techniques/contract_rollout.html">
+            
+                    
+                    Contract Rollout
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../techniques/bounties.html">
+            
+                <a href="../techniques/bounties.html">
+            
+                    
+                    Bug Bounty Program
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../specification/">
+            
+                <a href="../specification/">
+            
+                    
+                    Security Related Documentation and Procedure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../tools/">
+            
+                <a href="../tools/">
+            
+                    
+                    Security Tools
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../resource/">
+            
+                <a href="../resource/">
+            
+                    
+                    Security Notification
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../bibliography/">
+            
+                <a href="../bibliography/">
+            
+                    
+                    Bibliography
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Race Condition</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h3 id="race-conditions">Race Conditions<sup><a href="#footnote-race-condition-terminology">*</a></sup></h3>
+<p>One of the major dangers of calling external contracts is that they can take over the control flow, and make changes to your data that the calling function wasn&apos;t expecting. This class of bug can take many forms, and both of the major bugs that led to the DAO&apos;s collapse were bugs of this sort.</p>
+<p><a name="reentrancy"></a></p>
+<h4 id="reentrancy">Reentrancy</h4>
+<p>The first version of this bug to be noticed involved functions that could be called repeatedly, before the first invocation of the function was finished. This may cause the different invocations of the function to interact in destructive ways.</p>
+<pre><code>// INSECURE
+mapping (address =&gt; uint) private userBalances;
+
+function withdrawBalance() public {
+    uint amountToWithdraw = userBalances[msg.sender];
+    if (!(msg.sender.call.value(amountToWithdraw)())) { throw; } // At this point, the caller&apos;s code is executed, and can call withdrawBalance again
+    userBalances[msg.sender] = 0;
+}
+</code></pre><p>Since the user&apos;s balance is not set to 0 until the very end of the function, the second (and later) invocations will still succeed, and will withdraw the balance over and over again. A very similar bug was one of the vulnerabilities in the DAO attack.</p>
+<p>In the example given, the best way to avoid the problem is to <a href="https://github.com/ConsenSys/smart-contract-best-practices#send-vs-call-value" target="_blank">use <code>send()</code> instead of <code>call.value()()</code></a>. This will prevent any external code from being executed.</p>
+<p>However, if you can&apos;t remove the external call, the next simplest way to prevent this attack is to make sure you don&apos;t call an external function until you&apos;ve done all the internal work you need to do:</p>
+<pre><code>mapping (address =&gt; uint) private userBalances;
+
+function withdrawBalance() public {
+    uint amountToWithdraw = userBalances[msg.sender];
+    userBalances[msg.sender] = 0;
+    if (!(msg.sender.call.value(amountToWithdraw)())) { throw; } // The user&apos;s balance is already 0, so future invocations won&apos;t withdraw anything
+}
+</code></pre><p>Note that if you had another function which called <code>withdrawBalance()</code>, it would be potentially subject to the same attack, so you must treat any function which calls an untrusted contract as itself untrusted. See below for further discussion of potential solutions.</p>
+<h4 id="cross-function-race-conditions">Cross-function Race Conditions</h4>
+<p>An attacker may also be able to do a similar attack using two different functions that share the same state.</p>
+<pre><code>// INSECURE
+mapping (address =&gt; uint) private userBalances;
+
+function transfer(address to, uint amount) {
+    if (userBalances[msg.sender] &gt;= amount) {
+       userBalances[to] += amount;
+       userBalances[msg.sender] -= amount;
+    }
+}
+
+function withdrawBalance() public {
+    uint amountToWithdraw = userBalances[msg.sender];
+    if (!(msg.sender.call.value(amountToWithdraw)())) { throw; } // At this point, the caller&apos;s code is executed, and can call transfer()
+    userBalances[msg.sender] = 0;
+}
+</code></pre><p>In this case, the attacker calls <code>transfer()</code> when their code is executed on the external call in <code>withdrawBalance</code>. Since their balance has not yet been set to 0, they are able to transfer the tokens even though they already received the withdrawal. This vulnerability was also used in the DAO attack.</p>
+<p>The same solutions will work, with the same caveats. Also note that in this example, both functions were part of the same contract. However, the same bug can occur across multiple contracts, if those contracts share state.</p>
+<h4 id="pitfalls-in-race-condition-solutions">Pitfalls in Race Condition Solutions</h4>
+<p>Since race conditions can occur across multiple functions, and even multiple contracts, any solution aimed at preventing reentry will not be sufficient.</p>
+<p>Instead, we have recommended finishing all internal work first, and only then calling the external function. This rule, if followed carefully, will allow you to avoid race conditions. However, you need to not only avoid calling external functions too soon, but also avoid calling functions which call external functions. For example, the following is insecure:</p>
+<pre><code>// INSECURE
+mapping (address =&gt; uint) private userBalances;
+mapping (address =&gt; bool) private claimedBonus;
+mapping (address =&gt; uint) private rewardsForA;
+
+function withdraw(address recipient) public {
+    uint amountToWithdraw = userBalances[recipient];
+    rewardsForA[recipient] = 0;
+    if (!(recipient.call.value(amountToWithdraw)())) { throw; }
+}
+
+function getFirstWithdrawalBonus(address recipient) public {
+    if (claimedBonus[recipient]) { throw; } // Each recipient should only be able to claim the bonus once
+
+    rewardsForA[recipient] += 100;
+    withdraw(recipient); // At this point, the caller will be able to execute getFirstWithdrawalBonus again.
+    claimedBonus[recipient] = true;
+}
+</code></pre><p>Even though <code>getFirstWithdrawalBonus()</code> doesn&apos;t directly call an external contract, the call in <code>withdraw()</code> is enough to make it vulnerable to a race condition. you therefore need to treat <code>withdraw()</code> as if it were also untrusted.</p>
+<pre><code>mapping (address =&gt; uint) private userBalances;
+mapping (address =&gt; bool) private claimedBonus;
+mapping (address =&gt; uint) private rewardsForA;
+
+function untrustedWithdraw(address recipient) public {
+    uint amountToWithdraw = userBalances[recipient];
+    rewardsForA[recipient] = 0;
+    if (!(recipient.call.value(amountToWithdraw)())) { throw; }
+}
+
+function untrustedGetFirstWithdrawalBonus(address recipient) public {
+    if (claimedBonus[recipient]) { throw; } // Each recipient should only be able to claim the bonus once
+
+    claimedBonus[recipient] = true;
+    rewardsForA[recipient] += 100;
+    untrustedWithdraw(recipient); // claimedBonus has been set to true, so reentry is impossible
+}
+</code></pre><p>In addition to the fix making reentry impossible, <a href="https://github.com/ConsenSys/smart-contract-best-practices#mark-untrusted-contracts" target="_blank">untrusted functions have been marked.</a> This same pattern repeats at every level: since <code>untrustedGetFirstWithdrawalBonus()</code> calls <code>untrustedWithdraw()</code>, which calls an external contract, you must also treat <code>untrustedGetFirstWithdrawalBonus()</code> as insecure.</p>
+<p>Another solution often suggested is a <a href="https://en.wikipedia.org/wiki/Mutual_exclusion" target="_blank">mutex</a>. This allows you to &quot;lock&quot; some state so it can only be changed by the owner of the lock. A simple example might look like this:</p>
+<pre><code>// Note: This is a rudimentary example, and mutexes are particularly useful where there is substantial logic and/or shared state
+mapping (address =&gt; uint) private balances;
+bool private lockBalances;
+
+function deposit() payable public returns (bool) {
+    if (!lockBalances) {
+        lockBalances = true;
+        balances[msg.sender] += msg.value;
+        lockBalances = false;
+        return true;
+    }
+    throw;
+}
+
+function withdraw(uint amount) payable public returns (bool) {
+    if (!lockBalances &amp;&amp; amount &gt; 0 &amp;&amp; balances[msg.sender] &gt;= amount) {
+        lockBalances = true;
+
+        if (msg.sender.call(amount)()) { // Normally insecure, but the mutex saves it
+          balances[msg.sender] -= amount;
+        }
+
+        lockBalances = false;
+        return true;
+    }
+
+    throw;
+}
+</code></pre><p>If the user tries to call <code>withdraw()</code> again before the first call finishes, the lock will prevent it from having any effect. This can be an effective pattern, but it gets tricky when you have multiple contracts that need to cooperate. The following is insecure:</p>
+<pre><code>// INSECURE
+contract StateHolder {
+    uint private n;
+    address private lockHolder;
+
+    function getLock() {
+        if (lockHolder != 0) { throw; }
+        lockHolder = msg.sender;
+    }
+
+    function releaseLock() {
+        lockHolder = 0;
+    }
+
+    function set(uint newState) {
+        if (msg.sender != lockHolder) { throw; }
+        n = newState;
+    }
+}
+</code></pre><p>An attacker can call <code>getLock()</code>, and then never call <code>releaseLock()</code>. If they do this, then the contract will be locked forever, and no further changes will be able to be made. If you use mutexes to protect against race conditions, you will need to carefully ensure that there are no ways for a lock to be claimed and never released. (There are other potential dangers when programming with mutexes, such as deadlocks and livelocks. You should consult the large amount of literature already written on mutexes, if you decide to go this route.)</p>
+<p><a name="footnote-race-condition-terminology"></a></p>
+<ul>
+<li>Some may object to the use of the term <i>race condition</i>, since Ethereum does not currently have true parallelism. However, there is still the fundamental feature of logically distinct processes contending for resources, and the same sorts of pitfalls and potential solutions apply.</li>
+</ul>
+<p><a name="transaction-ordering-dependence"></a></p>
+<h3 id="transaction-ordering-dependence-tod--front-running">Transaction-Ordering Dependence (TOD) / Front Running</h3>
+<p>Above were examples of race conditions involving the attacker executing malicious code <em>within a single transaction</em>. The following are a different type of race condition inherent to Blockchains: the fact that <em>the order of transactions themselves</em> (within a block) is easily subject to manipulation. </p>
+<p>Since a transaction is in the mempool for a short while, one can know what actions will occur, before it is included in a block. This can be troublesome for things like decentralized markets, where a transaction to buy some tokens can be seen, and a market order implemented before the other transaction gets included. Protecting against this is difficult, as it would come down to the specific contract itself. For example, in markets, it would be better to implement batch auctions (this also protects against high frequency trading concerns). Another way to use a pre-commit scheme (&#x201C;I&#x2019;m going to submit the details later&#x201D;).</p>
+<p><a name="timestamp-dependence"></a></p>
+<h3 id="timestamp-dependence">Timestamp Dependence</h3>
+<p>Be aware that the timestamp of the block can be manipulated by the miner, and all direct and indirect uses of the timestamp should be considered. <em>Block numbers</em> and <em>average block time</em> can be used to estimate time, but this is not future proof as block times may change (such as the changes expected during Casper).</p>
+<pre><code>uint someVariable = now + 1;
+
+if (now % 2 == 0) { // the now can be manipulated by the miner
+
+}
+
+if ((someVariable - 100) % 2 == 0) { // someVariable can be manipulated by the miner
+
+}
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Known Attacks">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="race_condition.html#reentrancy" class="navigation navigation-next " aria-label="Next page: Reentrancy">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Race Condition","level":"1.4.1","depth":2,"next":{"title":"Reentrancy","level":"1.4.1.1","depth":3,"anchor":"#reentrancy","path":"attacks/race_condition.md","ref":"attacks/race_condition.md#reentrancy","articles":[]},"previous":{"title":"Known Attacks","level":"1.4","depth":1,"path":"attacks/README.md","ref":"attacks/README.md","articles":[{"title":"Race Condition","level":"1.4.1","depth":2,"path":"attacks/race_condition.md","ref":"attacks/race_condition.md","articles":[{"title":"Reentrancy","level":"1.4.1.1","depth":3,"anchor":"#reentrancy","path":"attacks/race_condition.md","ref":"attacks/race_condition.md#reentrancy","articles":[]},{"title":"Transaction Ordering Dependence","level":"1.4.1.2","depth":3,"anchor":"#transaction-ordering-dependence","path":"attacks/race_condition.md","ref":"attacks/race_condition.md#transaction-ordering-dependence","articles":[]}]},{"title":"Gas Related Attacks","level":"1.4.2","depth":2,"path":"attacks/gas_related_attacks.md","ref":"attacks/gas_related_attacks.md","articles":[]},{"title":"Overflow/Underflow","level":"1.4.3","depth":2,"path":"attacks/overflow_underflow.md","ref":"attacks/overflow_underflow.md","articles":[]},{"title":"Deprecated Attacks","level":"1.4.4","depth":2,"path":"attacks/deprecated_attacks.md","ref":"attacks/deprecated_attacks.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[],"root":"./docs","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Consensus System LLC","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"smart-contract-best-practices","language":"en","links":{"sidebar":{"Contact us":"https://github.com/ConsenSys/smart-contract-best-practices"}},"gitbook":">=3.0.0","description":""},"file":{"path":"attacks/race_condition.md","mtime":"2017-09-21T02:21:04.461Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-09-21T02:24:05.143Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

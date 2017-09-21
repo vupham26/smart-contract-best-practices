@@ -1,0 +1,664 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Fundamental Tradeoffs · smart-contract-best-practices</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Consensus System LLC">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../tips/" />
+    
+    
+    <link rel="prev" href="philosophy.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://github.com/ConsenSys/smart-contract-best-practices" target="_blank" class="custom-link">Contact us</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    General Philosophy
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="philosophy.html">
+            
+                <a href="philosophy.html">
+            
+                    
+                    Developement philosophy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.2" data-path="tradeoffs.html">
+            
+                <a href="tradeoffs.html">
+            
+                    
+                    Fundamental Tradeoffs
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../tips/">
+            
+                <a href="../tips/">
+            
+                    
+                    Solidity Security Tips
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../tips/external_call.html">
+            
+                <a href="../tips/external_call.html">
+            
+                    
+                    External Call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../tips/assert.html">
+            
+                <a href="../tips/assert.html">
+            
+                    
+                    Assert
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../tips/eth.html">
+            
+                <a href="../tips/eth.html">
+            
+                    
+                    ETH/Balance Related
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../tips/contract_design.html">
+            
+                <a href="../tips/contract_design.html">
+            
+                    
+                    Contract Design
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../tips/data_type.html">
+            
+                <a href="../tips/data_type.html">
+            
+                    
+                    Data Type Related
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../tips/style.html">
+            
+                <a href="../tips/style.html">
+            
+                    
+                    Style
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../tips/miscellaneous.html">
+            
+                <a href="../tips/miscellaneous.html">
+            
+                    
+                    Miscellaneous
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../attacks/">
+            
+                <a href="../attacks/">
+            
+                    
+                    Known Attacks
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../attacks/race_condition.html">
+            
+                <a href="../attacks/race_condition.html">
+            
+                    
+                    Race Condition
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="../attacks/race_condition.html">
+            
+                <a href="../attacks/race_condition.html#reentrancy">
+            
+                    
+                    Reentrancy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.2" data-path="../attacks/race_condition.html">
+            
+                <a href="../attacks/race_condition.html#transaction-ordering-dependence">
+            
+                    
+                    Transaction Ordering Dependence
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../attacks/gas_related_attacks.html">
+            
+                <a href="../attacks/gas_related_attacks.html">
+            
+                    
+                    Gas Related Attacks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../attacks/overflow_underflow.html">
+            
+                <a href="../attacks/overflow_underflow.html">
+            
+                    
+                    Overflow/Underflow
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../attacks/deprecated_attacks.html">
+            
+                <a href="../attacks/deprecated_attacks.html">
+            
+                    
+                    Deprecated Attacks
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../techniques/">
+            
+                <a href="../techniques/">
+            
+                    
+                    Software Engineering Techniques
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../techniques/upgrade_contract.html">
+            
+                <a href="../techniques/upgrade_contract.html">
+            
+                    
+                    Upgrading Broken Contracts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../techniques/pause_contract.html">
+            
+                <a href="../techniques/pause_contract.html">
+            
+                    
+                    Circuit Breakers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../techniques/speed_bump.html">
+            
+                <a href="../techniques/speed_bump.html">
+            
+                    
+                    Speed Bumps
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../techniques/limit_rate.html">
+            
+                <a href="../techniques/limit_rate.html">
+            
+                    
+                    Rate Limiting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../techniques/contract_rollout.html">
+            
+                <a href="../techniques/contract_rollout.html">
+            
+                    
+                    Contract Rollout
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../techniques/bounties.html">
+            
+                <a href="../techniques/bounties.html">
+            
+                    
+                    Bug Bounty Program
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../specification/">
+            
+                <a href="../specification/">
+            
+                    
+                    Security Related Documentation and Procedure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../tools/">
+            
+                <a href="../tools/">
+            
+                    
+                    Security Tools
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../resource/">
+            
+                <a href="../resource/">
+            
+                    
+                    Security Notification
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../bibliography/">
+            
+                <a href="../bibliography/">
+            
+                    
+                    Bibliography
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Fundamental Tradeoffs</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h3 id="fundamental-tradeoffs-simplicity-versus-complexity-cases">Fundamental Tradeoffs: Simplicity versus Complexity cases</h3>
+<p><a name="fundamental-tradeoffs"></a></p>
+<p>There are multiple fundamental tradeoffs to consider when assessing the structure and security of a smart contract system.  The general recommendation for any smart contract system is to identify the proper balance for these fundamental tradeoffs.</p>
+<p>An ideal smart contract system from a software engineering bias is modular, reuses code instead of duplicating it, and supports upgradeable components.  An ideal smart contract system from a secure architecture bias may share this mindset, especially in the case of more complex smart contract systems.</p>
+<p>However, there are important exceptions where security and software engineering best practices may not be aligned.  In each case, the proper balance is obtained by identifying the optimal mix of properties along contract system dimensions such as:</p>
+<ul>
+<li>Rigid versus Upgradeable </li>
+<li>Monolithic versus Modular</li>
+<li>Duplication versus Reuse</li>
+</ul>
+<h4 id="rigid-versus-upgradeable">Rigid versus Upgradeable</h4>
+<p>While multiple resources, including this one, emphasize malleability characteristics such as Killable, Upgradeable or Modifiable patterns there is a <em>fundamental tradeoff</em> between malleability and security.  </p>
+<p>Malleability patterns by definition add complexity and potential attack surfaces.  Simplicity is particularly effective over complexity in cases where the smart contract system performs a very limited set of functionality for a pre-defined limited period of time, for example a governance-free finite-time-frame token-sale contract system.</p>
+<h4 id="monolithic-versus-modular">Monolithic versus Modular</h4>
+<p>A monolithic self-contained contract keeps all knowledge locally identifiable and readable.  While there are few smart contract systems held in high regard that exist as monoliths, there is an argument to be made for extreme locality of data and flow - for example, in the case of optimizing code review efficiency.</p>
+<p>As with the other tradeoffs considered here, security best practices trend away from software engineering best practices in simple short-lived contracts and trend towared software engineering best practices in the case of more complex perpetual contract systems.</p>
+<h4 id="duplication-versus-reuse">Duplication versus Reuse</h4>
+<p>A smart contract system from a software engineering perspective wishes to maximize reuse where reasonable.  There are many ways to reuse contract code in Solidity.  Using proven previously-deployed contracts <em>which you own</em> is generally the safest manner to achieve code reuse.</p>
+<p>Duplication is frequently relied upon in cases where self-owned previously-deployed contracts are not available.  Efforts such as <a href="https://github.com/ConsenSys/live-libs" target="_blank">Live Libs</a> and <a href="https://github.com/OpenZeppelin/zeppelin-solidity" target="_blank">Zeppelin Solidity</a> seek to provide patterns such that secure code can be re-used without duplication.  Any contract security analyses must include any re-used code that has not previously established a level of trust commensurate with the funds at risk in the target smart contract system.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="philosophy.html" class="navigation navigation-prev " aria-label="Previous page: Developement philosophy">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../tips/" class="navigation navigation-next " aria-label="Next page: Solidity Security Tips">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Fundamental Tradeoffs","level":"1.2.2","depth":2,"next":{"title":"Solidity Security Tips","level":"1.3","depth":1,"path":"tips/README.md","ref":"tips/README.md","articles":[{"title":"External Call","level":"1.3.1","depth":2,"path":"tips/external_call.md","ref":"tips/external_call.md","articles":[]},{"title":"Assert","level":"1.3.2","depth":2,"path":"tips/assert.md","ref":"tips/assert.md","articles":[]},{"title":"ETH/Balance Related","level":"1.3.3","depth":2,"path":"tips/eth.md","ref":"tips/eth.md","articles":[]},{"title":"Contract Design","level":"1.3.4","depth":2,"path":"tips/contract_design.md","ref":"tips/contract_design.md","articles":[]},{"title":"Data Type Related","level":"1.3.5","depth":2,"path":"tips/data_type.md","ref":"tips/data_type.md","articles":[]},{"title":"Style","level":"1.3.6","depth":2,"path":"tips/style.md","ref":"tips/style.md","articles":[]},{"title":"Miscellaneous","level":"1.3.7","depth":2,"path":"tips/miscellaneous.md","ref":"tips/miscellaneous.md","articles":[]}]},"previous":{"title":"Developement philosophy","level":"1.2.1","depth":2,"path":"general/philosophy.md","ref":"general/philosophy.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"root":"./docs","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Consensus System LLC","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"smart-contract-best-practices","language":"en","links":{"sidebar":{"Contact us":"https://github.com/ConsenSys/smart-contract-best-practices"}},"gitbook":">=3.0.0","description":""},"file":{"path":"general/tradeoffs.md","mtime":"2017-09-21T01:41:23.507Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-09-21T02:24:05.143Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,676 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Bibliography · smart-contract-best-practices</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Consensus System LLC">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="../resource/" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://github.com/ConsenSys/smart-contract-best-practices" target="_blank" class="custom-link">Contact us</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../general/">
+            
+                <a href="../general/">
+            
+                    
+                    General Philosophy
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../general/philosophy.html">
+            
+                <a href="../general/philosophy.html">
+            
+                    
+                    Developement philosophy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../general/tradeoffs.html">
+            
+                <a href="../general/tradeoffs.html">
+            
+                    
+                    Fundamental Tradeoffs
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../tips/">
+            
+                <a href="../tips/">
+            
+                    
+                    Solidity Security Tips
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../tips/external_call.html">
+            
+                <a href="../tips/external_call.html">
+            
+                    
+                    External Call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../tips/assert.html">
+            
+                <a href="../tips/assert.html">
+            
+                    
+                    Assert
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../tips/eth.html">
+            
+                <a href="../tips/eth.html">
+            
+                    
+                    ETH/Balance Related
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../tips/contract_design.html">
+            
+                <a href="../tips/contract_design.html">
+            
+                    
+                    Contract Design
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../tips/data_type.html">
+            
+                <a href="../tips/data_type.html">
+            
+                    
+                    Data Type Related
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../tips/style.html">
+            
+                <a href="../tips/style.html">
+            
+                    
+                    Style
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../tips/miscellaneous.html">
+            
+                <a href="../tips/miscellaneous.html">
+            
+                    
+                    Miscellaneous
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../attacks/">
+            
+                <a href="../attacks/">
+            
+                    
+                    Known Attacks
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../attacks/race_condition.html">
+            
+                <a href="../attacks/race_condition.html">
+            
+                    
+                    Race Condition
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="../attacks/race_condition.html">
+            
+                <a href="../attacks/race_condition.html#reentrancy">
+            
+                    
+                    Reentrancy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.2" data-path="../attacks/race_condition.html">
+            
+                <a href="../attacks/race_condition.html#transaction-ordering-dependence">
+            
+                    
+                    Transaction Ordering Dependence
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../attacks/gas_related_attacks.html">
+            
+                <a href="../attacks/gas_related_attacks.html">
+            
+                    
+                    Gas Related Attacks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../attacks/overflow_underflow.html">
+            
+                <a href="../attacks/overflow_underflow.html">
+            
+                    
+                    Overflow/Underflow
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../attacks/deprecated_attacks.html">
+            
+                <a href="../attacks/deprecated_attacks.html">
+            
+                    
+                    Deprecated Attacks
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../techniques/">
+            
+                <a href="../techniques/">
+            
+                    
+                    Software Engineering Techniques
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../techniques/upgrade_contract.html">
+            
+                <a href="../techniques/upgrade_contract.html">
+            
+                    
+                    Upgrading Broken Contracts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../techniques/pause_contract.html">
+            
+                <a href="../techniques/pause_contract.html">
+            
+                    
+                    Circuit Breakers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../techniques/speed_bump.html">
+            
+                <a href="../techniques/speed_bump.html">
+            
+                    
+                    Speed Bumps
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../techniques/limit_rate.html">
+            
+                <a href="../techniques/limit_rate.html">
+            
+                    
+                    Rate Limiting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../techniques/contract_rollout.html">
+            
+                <a href="../techniques/contract_rollout.html">
+            
+                    
+                    Contract Rollout
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../techniques/bounties.html">
+            
+                <a href="../techniques/bounties.html">
+            
+                    
+                    Bug Bounty Program
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../specification/">
+            
+                <a href="../specification/">
+            
+                    
+                    Security Related Documentation and Procedure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../tools/">
+            
+                <a href="../tools/">
+            
+                    
+                    Security Tools
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../resource/">
+            
+                <a href="../resource/">
+            
+                    
+                    Security Notification
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.9" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Bibliography
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Bibliography</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p><a name="bibliography"></a></p>
+<h2 id="smart-contract-security-bibliography">Smart Contract Security Bibliography</h2>
+<p>A lot of this document contains code, examples and insights gained from various parts already written by the community.
+Here are some of them.  Feel free to add more.</p>
+<h5 id="by-ethereum-core-developers">By Ethereum core developers</h5>
+<ul>
+<li><a href="https://chriseth.github.io/notes/talks/safe_solidity" target="_blank">How to Write Safe Smart Contracts</a> (Christian Reitwiessner)</li>
+<li><a href="https://blog.ethereum.org/2016/06/10/smart-contract-security/" target="_blank">Smart Contract Security</a> (Christian Reitwiessner)</li>
+<li><a href="https://blog.ethereum.org/2016/06/19/thinking-smart-contract-security/" target="_blank">Thinking about Smart Contract Security</a> (Vitalik Buterin)</li>
+<li><a href="http://solidity.readthedocs.io" target="_blank">Solidity</a></li>
+<li><a href="http://solidity.readthedocs.io/en/latest/security-considerations.html" target="_blank">Solidity Security Considerations</a></li>
+</ul>
+<h5 id="by-community">By Community</h5>
+<ul>
+<li><a href="http://forum.ethereum.org/discussion/1317/reentrant-contracts" target="_blank">http://forum.ethereum.org/discussion/1317/reentrant-contracts</a></li>
+<li><a href="http://hackingdistributed.com/2016/06/16/scanning-live-ethereum-contracts-for-bugs/" target="_blank">http://hackingdistributed.com/2016/06/16/scanning-live-ethereum-contracts-for-bugs/</a></li>
+<li><a href="http://hackingdistributed.com/2016/06/18/analysis-of-the-dao-exploit/" target="_blank">http://hackingdistributed.com/2016/06/18/analysis-of-the-dao-exploit/</a></li>
+<li><a href="http://hackingdistributed.com/2016/06/22/smart-contract-escape-hatches/" target="_blank">http://hackingdistributed.com/2016/06/22/smart-contract-escape-hatches/</a></li>
+<li><a href="http://martin.swende.se/blog/Devcon1-and-contract-security.html" target="_blank">http://martin.swende.se/blog/Devcon1-and-contract-security.html</a></li>
+<li><a href="http://publications.lib.chalmers.se/records/fulltext/234939/234939.pdf" target="_blank">http://publications.lib.chalmers.se/records/fulltext/234939/234939.pdf</a></li>
+<li><a href="http://vessenes.com/deconstructing-thedao-attack-a-brief-code-tour" target="_blank">http://vessenes.com/deconstructing-thedao-attack-a-brief-code-tour</a></li>
+<li><a href="http://vessenes.com/ethereum-griefing-wallets-send-w-throw-considered-harmful" target="_blank">http://vessenes.com/ethereum-griefing-wallets-send-w-throw-considered-harmful</a></li>
+<li><a href="http://vessenes.com/more-ethereum-attacks-race-to-empty-is-the-real-deal" target="_blank">http://vessenes.com/more-ethereum-attacks-race-to-empty-is-the-real-deal</a></li>
+<li><a href="https://blog.blockstack.org/simple-contracts-are-better-contracts-what-we-can-learn-from-the-dao-6293214bad3a" target="_blank">https://blog.blockstack.org/simple-contracts-are-better-contracts-what-we-can-learn-from-the-dao-6293214bad3a</a></li>
+<li><a href="https://blog.slock.it/deja-vu-dao-smart-contracts-audit-results-d26bc088e32e" target="_blank">https://blog.slock.it/deja-vu-dao-smart-contracts-audit-results-d26bc088e32e</a></li>
+<li><a href="https://blog.vdice.io/wp-content/uploads/2016/11/vsliceaudit_v1.3.pdf" target="_blank">https://blog.vdice.io/wp-content/uploads/2016/11/vsliceaudit_v1.3.pdf</a></li>
+<li><a href="https://eprint.iacr.org/2016/1007.pdf" target="_blank">https://eprint.iacr.org/2016/1007.pdf</a></li>
+<li><a href="https://github.com/Bunjin/Rouleth/blob/master/Security.md" target="_blank">https://github.com/Bunjin/Rouleth/blob/master/Security.md</a></li>
+<li><a href="https://github.com/LeastAuthority/ethereum-analyses" target="_blank">https://github.com/LeastAuthority/ethereum-analyses</a></li>
+<li><a href="https://medium.com/@ConsenSys/assert-guards-towards-automated-code-bounties-safe-smart-contract-coding-on-ethereum-8e74364b795c" target="_blank">https://medium.com/@ConsenSys/assert-guards-towards-automated-code-bounties-safe-smart-contract-coding-on-ethereum-8e74364b795c</a></li>
+<li><a href="https://medium.com/@coriacetic/in-bits-we-trust-4e464b418f0b" target="_blank">https://medium.com/@coriacetic/in-bits-we-trust-4e464b418f0b</a></li>
+<li><a href="https://medium.com/@hrishiolickel/why-smart-contracts-fail-undiscovered-bugs-and-what-we-can-do-about-them-119aa2843007" target="_blank">https://medium.com/@hrishiolickel/why-smart-contracts-fail-undiscovered-bugs-and-what-we-can-do-about-them-119aa2843007</a></li>
+<li><a href="https://medium.com/@peterborah/we-need-fault-tolerant-smart-contracts-ec1b56596dbc" target="_blank">https://medium.com/@peterborah/we-need-fault-tolerant-smart-contracts-ec1b56596dbc</a></li>
+<li><a href="https://medium.com/zeppelin-blog/zeppelin-framework-proposal-and-development-roadmap-fdfa9a3a32ab" target="_blank">https://medium.com/zeppelin-blog/zeppelin-framework-proposal-and-development-roadmap-fdfa9a3a32ab</a></li>
+<li><a href="https://pdaian.com/blog/chasing-the-dao-attackers-wake" target="_blank">https://pdaian.com/blog/chasing-the-dao-attackers-wake</a></li>
+<li><a href="http://www.comp.nus.edu.sg/~loiluu/papers/oyente.pdf" target="_blank">http://www.comp.nus.edu.sg/~loiluu/papers/oyente.pdf</a></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../resource/" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Security Notification">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Bibliography","level":"1.9","depth":1,"previous":{"title":"Security Notification","level":"1.8","depth":1,"path":"resource/README.md","ref":"resource/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"root":"./docs","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Consensus System LLC","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"smart-contract-best-practices","language":"en","links":{"sidebar":{"Contact us":"https://github.com/ConsenSys/smart-contract-best-practices"}},"gitbook":">=3.0.0","description":""},"file":{"path":"bibliography/README.md","mtime":"2017-09-20T15:04:32.674Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-09-21T02:24:05.143Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

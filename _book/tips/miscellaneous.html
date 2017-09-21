@@ -1,0 +1,648 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Miscellaneous · smart-contract-best-practices</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Consensus System LLC">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../attacks/" />
+    
+    
+    <link rel="prev" href="style.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://github.com/ConsenSys/smart-contract-best-practices" target="_blank" class="custom-link">Contact us</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../general/">
+            
+                <a href="../general/">
+            
+                    
+                    General Philosophy
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../general/philosophy.html">
+            
+                <a href="../general/philosophy.html">
+            
+                    
+                    Developement philosophy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../general/tradeoffs.html">
+            
+                <a href="../general/tradeoffs.html">
+            
+                    
+                    Fundamental Tradeoffs
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Solidity Security Tips
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="external_call.html">
+            
+                <a href="external_call.html">
+            
+                    
+                    External Call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="assert.html">
+            
+                <a href="assert.html">
+            
+                    
+                    Assert
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="eth.html">
+            
+                <a href="eth.html">
+            
+                    
+                    ETH/Balance Related
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="contract_design.html">
+            
+                <a href="contract_design.html">
+            
+                    
+                    Contract Design
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="data_type.html">
+            
+                <a href="data_type.html">
+            
+                    
+                    Data Type Related
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="style.html">
+            
+                <a href="style.html">
+            
+                    
+                    Style
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.7" data-path="miscellaneous.html">
+            
+                <a href="miscellaneous.html">
+            
+                    
+                    Miscellaneous
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../attacks/">
+            
+                <a href="../attacks/">
+            
+                    
+                    Known Attacks
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../attacks/race_condition.html">
+            
+                <a href="../attacks/race_condition.html">
+            
+                    
+                    Race Condition
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="../attacks/race_condition.html">
+            
+                <a href="../attacks/race_condition.html#reentrancy">
+            
+                    
+                    Reentrancy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.2" data-path="../attacks/race_condition.html">
+            
+                <a href="../attacks/race_condition.html#transaction-ordering-dependence">
+            
+                    
+                    Transaction Ordering Dependence
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../attacks/gas_related_attacks.html">
+            
+                <a href="../attacks/gas_related_attacks.html">
+            
+                    
+                    Gas Related Attacks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../attacks/overflow_underflow.html">
+            
+                <a href="../attacks/overflow_underflow.html">
+            
+                    
+                    Overflow/Underflow
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../attacks/deprecated_attacks.html">
+            
+                <a href="../attacks/deprecated_attacks.html">
+            
+                    
+                    Deprecated Attacks
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../techniques/">
+            
+                <a href="../techniques/">
+            
+                    
+                    Software Engineering Techniques
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../techniques/upgrade_contract.html">
+            
+                <a href="../techniques/upgrade_contract.html">
+            
+                    
+                    Upgrading Broken Contracts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../techniques/pause_contract.html">
+            
+                <a href="../techniques/pause_contract.html">
+            
+                    
+                    Circuit Breakers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../techniques/speed_bump.html">
+            
+                <a href="../techniques/speed_bump.html">
+            
+                    
+                    Speed Bumps
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../techniques/limit_rate.html">
+            
+                <a href="../techniques/limit_rate.html">
+            
+                    
+                    Rate Limiting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../techniques/contract_rollout.html">
+            
+                <a href="../techniques/contract_rollout.html">
+            
+                    
+                    Contract Rollout
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../techniques/bounties.html">
+            
+                <a href="../techniques/bounties.html">
+            
+                    
+                    Bug Bounty Program
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../specification/">
+            
+                <a href="../specification/">
+            
+                    
+                    Security Related Documentation and Procedure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../tools/">
+            
+                <a href="../tools/">
+            
+                    
+                    Security Tools
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../resource/">
+            
+                <a href="../resource/">
+            
+                    
+                    Security Notification
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../bibliography/">
+            
+                <a href="../bibliography/">
+            
+                    
+                    Bibliography
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Miscellaneous</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p><a name="prefer-newer-constructs"></a></p>
+<h3 id="prefer-newer-solidity-constructs">Prefer newer Solidity constructs</h3>
+<p>Prefer constructs/aliases such as <code>selfdestruct</code> (over <code>suicide</code>) and <code>keccak256</code> (over <code>sha3</code>).  Patterns like <code>require(msg.sender.send(1 ether))</code> can also be simplified to using <code>transfer()</code>, as in <code>msg.sender.transfer(1 ether)</code>.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="style.html" class="navigation navigation-prev " aria-label="Previous page: Style">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../attacks/" class="navigation navigation-next " aria-label="Next page: Known Attacks">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Miscellaneous","level":"1.3.7","depth":2,"next":{"title":"Known Attacks","level":"1.4","depth":1,"path":"attacks/README.md","ref":"attacks/README.md","articles":[{"title":"Race Condition","level":"1.4.1","depth":2,"path":"attacks/race_condition.md","ref":"attacks/race_condition.md","articles":[{"title":"Reentrancy","level":"1.4.1.1","depth":3,"anchor":"#reentrancy","path":"attacks/race_condition.md","ref":"attacks/race_condition.md#reentrancy","articles":[]},{"title":"Transaction Ordering Dependence","level":"1.4.1.2","depth":3,"anchor":"#transaction-ordering-dependence","path":"attacks/race_condition.md","ref":"attacks/race_condition.md#transaction-ordering-dependence","articles":[]}]},{"title":"Gas Related Attacks","level":"1.4.2","depth":2,"path":"attacks/gas_related_attacks.md","ref":"attacks/gas_related_attacks.md","articles":[]},{"title":"Overflow/Underflow","level":"1.4.3","depth":2,"path":"attacks/overflow_underflow.md","ref":"attacks/overflow_underflow.md","articles":[]},{"title":"Deprecated Attacks","level":"1.4.4","depth":2,"path":"attacks/deprecated_attacks.md","ref":"attacks/deprecated_attacks.md","articles":[]}]},"previous":{"title":"Style","level":"1.3.6","depth":2,"path":"tips/style.md","ref":"tips/style.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"root":"./docs","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Consensus System LLC","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"smart-contract-best-practices","language":"en","links":{"sidebar":{"Contact us":"https://github.com/ConsenSys/smart-contract-best-practices"}},"gitbook":">=3.0.0","description":""},"file":{"path":"tips/miscellaneous.md","mtime":"2017-09-21T01:30:38.680Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-09-21T02:24:05.143Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

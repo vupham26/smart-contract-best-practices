@@ -1,0 +1,737 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>External Call · smart-contract-best-practices</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Consensus System LLC">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="assert.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://github.com/ConsenSys/smart-contract-best-practices" target="_blank" class="custom-link">Contact us</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../general/">
+            
+                <a href="../general/">
+            
+                    
+                    General Philosophy
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../general/philosophy.html">
+            
+                <a href="../general/philosophy.html">
+            
+                    
+                    Developement philosophy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../general/tradeoffs.html">
+            
+                <a href="../general/tradeoffs.html">
+            
+                    
+                    Fundamental Tradeoffs
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Solidity Security Tips
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.3.1" data-path="external_call.html">
+            
+                <a href="external_call.html">
+            
+                    
+                    External Call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="assert.html">
+            
+                <a href="assert.html">
+            
+                    
+                    Assert
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="eth.html">
+            
+                <a href="eth.html">
+            
+                    
+                    ETH/Balance Related
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="contract_design.html">
+            
+                <a href="contract_design.html">
+            
+                    
+                    Contract Design
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="data_type.html">
+            
+                <a href="data_type.html">
+            
+                    
+                    Data Type Related
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="style.html">
+            
+                <a href="style.html">
+            
+                    
+                    Style
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="miscellaneous.html">
+            
+                <a href="miscellaneous.html">
+            
+                    
+                    Miscellaneous
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../attacks/">
+            
+                <a href="../attacks/">
+            
+                    
+                    Known Attacks
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../attacks/race_condition.html">
+            
+                <a href="../attacks/race_condition.html">
+            
+                    
+                    Race Condition
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="../attacks/race_condition.html">
+            
+                <a href="../attacks/race_condition.html#reentrancy">
+            
+                    
+                    Reentrancy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.2" data-path="../attacks/race_condition.html">
+            
+                <a href="../attacks/race_condition.html#transaction-ordering-dependence">
+            
+                    
+                    Transaction Ordering Dependence
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../attacks/gas_related_attacks.html">
+            
+                <a href="../attacks/gas_related_attacks.html">
+            
+                    
+                    Gas Related Attacks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../attacks/overflow_underflow.html">
+            
+                <a href="../attacks/overflow_underflow.html">
+            
+                    
+                    Overflow/Underflow
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../attacks/deprecated_attacks.html">
+            
+                <a href="../attacks/deprecated_attacks.html">
+            
+                    
+                    Deprecated Attacks
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../techniques/">
+            
+                <a href="../techniques/">
+            
+                    
+                    Software Engineering Techniques
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../techniques/upgrade_contract.html">
+            
+                <a href="../techniques/upgrade_contract.html">
+            
+                    
+                    Upgrading Broken Contracts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../techniques/pause_contract.html">
+            
+                <a href="../techniques/pause_contract.html">
+            
+                    
+                    Circuit Breakers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../techniques/speed_bump.html">
+            
+                <a href="../techniques/speed_bump.html">
+            
+                    
+                    Speed Bumps
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../techniques/limit_rate.html">
+            
+                <a href="../techniques/limit_rate.html">
+            
+                    
+                    Rate Limiting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../techniques/contract_rollout.html">
+            
+                <a href="../techniques/contract_rollout.html">
+            
+                    
+                    Contract Rollout
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../techniques/bounties.html">
+            
+                <a href="../techniques/bounties.html">
+            
+                    
+                    Bug Bounty Program
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../specification/">
+            
+                <a href="../specification/">
+            
+                    
+                    Security Related Documentation and Procedure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../tools/">
+            
+                <a href="../tools/">
+            
+                    
+                    Security Tools
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../resource/">
+            
+                <a href="../resource/">
+            
+                    
+                    Security Notification
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../bibliography/">
+            
+                <a href="../bibliography/">
+            
+                    
+                    Bibliography
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >External Call</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h3 id="external-calls">External Calls</h3>
+<h4 id="avoid-external-calls-when-possible">Avoid external calls when possible</h4>
+<p><a name="avoid-external-calls"></a></p>
+<p>Calls to untrusted contracts can introduce several unexpected risks or errors. External calls may execute malicious code in that contract <em>or</em> any other contract that it depends upon. As such, every external call should be treated as a potential security risk, and removed if possible. When it is not possible to remove external calls, use the recommendations in the rest of this section to minimize the danger.</p>
+<p><a name="send-vs-call-value"></a></p>
+<h4 id="be-aware-of-the-tradeoffs-between-send-transfer-and-callvalue">Be aware of the tradeoffs between <code>send()</code>, <code>transfer()</code>, and <code>call.value()()</code></h4>
+<p>When sending Ether be aware of the relative tradeoffs between the use of
+<code>someAddress.send()</code>, <code>someAddress.transfer()</code>, and <code>someAddress.call.value()()</code>.</p>
+<ul>
+<li><code>x.transfer(y)</code> is equivalent to <code>if (!x.send(y)) throw;</code> Send is the low level counterpart of transfer, and it&apos;s advisable to use      transfer when possible.</li>
+<li><code>someAddress.send()</code>and <code>someAddress.transfer()</code> are considered <em>safe</em> against <a href="attacks/race_condition.md#reentrancy">reentrancy</a>.
+  While these methods still trigger code execution, the called contract is
+  only given a stipend of 2,300 gas which is currently only enough to log an
+  event.</li>
+<li><code>someAddress.call.value()()</code> will send the provided ether and trigger code
+  execution.  The executed code is given all available gas for execution
+  making this type of value transfer <em>unsafe</em> against reentrancy.</li>
+</ul>
+<p>Using <code>send()</code> or <code>transfer()</code> will prevent reentrancy but it does so at the cost of being
+incompatible with any contract whose fallback function requires more than 2,300
+gas.  </p>
+<p>One pattern that attempts to balance this trade-off is to implement both
+a <a href="tips/external_call.md#favor-pull-over-push-payments"><em>push</em> and <em>pull</em></a> mechanism, using <code>send()</code> or <code>transfer()</code>
+for the <em>push</em> component and <code>call.value()()</code> for the <em>pull</em> component.</p>
+<p>It is worth pointing out that exclusive use of <code>send()</code> or <code>transfer()</code> for value transfers
+does not itself make a contract safe against reentrancy, but only makes those
+specific value transfers safe against reentrancy.</p>
+<p><a name="handle-external-errors"></a></p>
+<h4 id="handle-errors-in-external-calls">Handle errors in external calls</h4>
+<p>Solidity offers low-level call methods that work on raw addresses: <code>address.call()</code>, <code>address.callcode()</code>, <code>address.delegatecall()</code>, and <code>address.send</code>. These low-level methods never throw an exception, but will return <code>false</code> if the call encounters an exception. On the other hand, <em>contract calls</em> (e.g., <code>ExternalContract.doSomething()</code>) will automatically propagate a throw (for example, <code>ExternalContract.doSomething()</code> will also <code>throw</code> if <code>doSomething()</code> throws).</p>
+<p>If you choose to use the low-level call methods, make sure to handle the possibility that the call will fail, by checking the return value.</p>
+<pre><code>// bad
+someAddress.send(55);
+someAddress.call.value(55)(); // this is doubly dangerous, as it will forward all remaining gas and doesn&apos;t check for result
+someAddress.call.value(100)(bytes4(sha3(&quot;deposit()&quot;))); // if deposit throws an exception, the raw call() will only return false and transaction will NOT be reverted
+
+// good
+if(!someAddress.send(55)) {
+    // Some failure code
+}
+
+ExternalContract(someAddress).deposit.value(100);
+</code></pre><p><a name="expect-control-flow-loss"></a></p>
+<h4 id="dont-make-control-flow-assumptions-after-external-calls">Don&apos;t make control flow assumptions after external calls</h4>
+<p>Whether using <em>raw calls</em> or <em>contract calls</em>, assume that malicious code will execute if <code>ExternalContract</code> is untrusted. Even if <code>ExternalContract</code> is not malicious, malicious code can be executed by any contracts <em>it</em> calls. One particular danger is malicious code may hijack the control flow, leading to race conditions. (See <a href="https://github.com/ConsenSys/smart-contract-best-practices/#race-conditions" target="_blank">Race Conditions</a> for a fuller discussion of this problem).</p>
+<p><a name="favor-pull-over-push-payments"></a></p>
+<h4 id="favor-pull-over-push-for-external-calls">Favor <em>pull</em> over <em>push</em> for external calls</h4>
+<p>External calls can fail accidentally or deliberately. To minimize the damage caused by such failures, it is often better to isolate each external call into its own transaction that can be initiated by the recipient of the call. This is especially relevant for payments, where it is better to let users withdraw funds rather than push funds to them automatically. (This also reduces the chance of <a href="https://github.com/ConsenSys/smart-contract-best-practices/#dos-with-block-gas-limit" target="_blank">problems with the gas limit</a>.)  Avoid combining multiple <code>send()</code> calls in a single transaction.</p>
+<pre><code>// bad
+contract auction {
+    address highestBidder;
+    uint highestBid;
+
+    function bid() payable {
+        if (msg.value &lt; highestBid) throw;
+
+        if (highestBidder != 0) {
+            if (!highestBidder.send(highestBid)) { // if this call consistently fails, no one else can bid
+                throw;
+            }
+        }
+
+       highestBidder = msg.sender;
+       highestBid = msg.value;
+    }
+}
+
+// good
+contract auction {
+    address highestBidder;
+    uint highestBid;
+    mapping(address =&gt; uint) refunds;
+
+    function bid() payable external {
+        if (msg.value &lt; highestBid) throw;
+
+        if (highestBidder != 0) {
+            refunds[highestBidder] += highestBid; // record the refund that this user can claim
+        }
+
+        highestBidder = msg.sender;
+        highestBid = msg.value;
+    }
+
+    function withdrawRefund() external {
+        uint refund = refunds[msg.sender];
+        refunds[msg.sender] = 0;
+        if (!msg.sender.send(refund)) {
+            refunds[msg.sender] = refund; // reverting state because send failed
+        }
+    }
+}
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Solidity Security Tips">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="assert.html" class="navigation navigation-next " aria-label="Next page: Assert">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"External Call","level":"1.3.1","depth":2,"next":{"title":"Assert","level":"1.3.2","depth":2,"path":"tips/assert.md","ref":"tips/assert.md","articles":[]},"previous":{"title":"Solidity Security Tips","level":"1.3","depth":1,"path":"tips/README.md","ref":"tips/README.md","articles":[{"title":"External Call","level":"1.3.1","depth":2,"path":"tips/external_call.md","ref":"tips/external_call.md","articles":[]},{"title":"Assert","level":"1.3.2","depth":2,"path":"tips/assert.md","ref":"tips/assert.md","articles":[]},{"title":"ETH/Balance Related","level":"1.3.3","depth":2,"path":"tips/eth.md","ref":"tips/eth.md","articles":[]},{"title":"Contract Design","level":"1.3.4","depth":2,"path":"tips/contract_design.md","ref":"tips/contract_design.md","articles":[]},{"title":"Data Type Related","level":"1.3.5","depth":2,"path":"tips/data_type.md","ref":"tips/data_type.md","articles":[]},{"title":"Style","level":"1.3.6","depth":2,"path":"tips/style.md","ref":"tips/style.md","articles":[]},{"title":"Miscellaneous","level":"1.3.7","depth":2,"path":"tips/miscellaneous.md","ref":"tips/miscellaneous.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[],"root":"./docs","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Consensus System LLC","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"smart-contract-best-practices","language":"en","links":{"sidebar":{"Contact us":"https://github.com/ConsenSys/smart-contract-best-practices"}},"gitbook":">=3.0.0","description":""},"file":{"path":"tips/external_call.md","mtime":"2017-09-21T01:49:04.010Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-09-21T02:24:05.143Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

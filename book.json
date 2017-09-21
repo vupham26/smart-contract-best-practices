@@ -1,0 +1,13 @@
+{
+	"root":"./docs",
+	"title":"smart-contract-best-practices",
+	"description":"",
+	"author":"Consensus System LLC",
+	"language":"en",
+	"gitbook":">=3.0.0",
+	"links": {
+		"sidebar":{
+			"Contact us":"https://github.com/ConsenSys/smart-contract-best-practices"
+		}
+	}
+}
