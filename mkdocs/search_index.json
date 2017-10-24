@@ -2,17 +2,22 @@
     "docs": [
         {
             "location": "/",
-            "text": "Ethereum Smart Contract Security Best Practices\n\u00b6\n\n\n\n\nThis document is designed to provide a starting \nsecurity\n baseline for intermediate Solidity programmers.  It additionally includes \nsecurity philosophies; bug bounty program guidelines; documentation and procedures; and tools.\n\n\nContributions are welcome!\n\u00b6\n\n\nFeel free to submit a pull request, with anything from small fixes, to full new sections.\n\n\nSee the \nissues\n for topics that need to be covered or updated.\n\n\nIf you've written an article or blog post, please add it to the \nbibliography\n.",
+            "text": "Ethereum Smart Contract Security Best Practices\n\u00b6\n\n\n\n\nThis document is designed to provide a baseline knowledge of security considerations for intermediate Solidity programmers. \n\n\nWhere to start?\n\u00b6\n\n\n\n\nGeneral Philosopy\n describes the smart contract security mindset\n\n\nSolidity Recommendations\n contains examples of good code patterns\n\n\nKnown Attacks\n describes the different classes of vulnerabilities to avoid\n\n\nSoftware Engineering\n outlines some architectural and design approaches for risk mitigation\n\n\nDocumentation and Procedures\n outlines best practices for documenting your system for other developers and auditors \n\n\nSecurity Tools\n lists tools for improving code quality, and detecting vulnerabilities\n\n\nSecurity Notifications\n lists sources of information for staying up to date\n\n\n\n\nContributions are welcome!\n\u00b6\n\n\nFeel free to submit a pull request, with anything from small fixes, to full new sections. If you are writing new content, please reference the \ncontributions\n page for guidance on style. \n\n\nSee the \nissues\n for topics that need to be covered or updated. If you have an idea you'd like to discuss, please chat with us in \nGitter\n.\n\n\nIf you've written an article or blog post, please add it to the \nbibliography\n.",
             "title": "Home"
         },
         {
             "location": "/#ethereum-smart-contract-security-best-practices",
-            "text": "This document is designed to provide a starting  security  baseline for intermediate Solidity programmers.  It additionally includes  security philosophies; bug bounty program guidelines; documentation and procedures; and tools.",
+            "text": "This document is designed to provide a baseline knowledge of security considerations for intermediate Solidity programmers.",
             "title": "Ethereum Smart Contract Security Best Practices"
         },
         {
+            "location": "/#where-to-start",
+            "text": "General Philosopy  describes the smart contract security mindset  Solidity Recommendations  contains examples of good code patterns  Known Attacks  describes the different classes of vulnerabilities to avoid  Software Engineering  outlines some architectural and design approaches for risk mitigation  Documentation and Procedures  outlines best practices for documenting your system for other developers and auditors   Security Tools  lists tools for improving code quality, and detecting vulnerabilities  Security Notifications  lists sources of information for staying up to date",
+            "title": "Where to start?"
+        },
+        {
             "location": "/#contributions-are-welcome",
-            "text": "Feel free to submit a pull request, with anything from small fixes, to full new sections.  See the  issues  for topics that need to be covered or updated.  If you've written an article or blog post, please add it to the  bibliography .",
+            "text": "Feel free to submit a pull request, with anything from small fixes, to full new sections. If you are writing new content, please reference the  contributions  page for guidance on style.   See the  issues  for topics that need to be covered or updated. If you have an idea you'd like to discuss, please chat with us in  Gitter .  If you've written an article or blog post, please add it to the  bibliography .",
             "title": "Contributions are welcome!"
         },
         {
@@ -312,12 +317,12 @@
         },
         {
             "location": "/future_improvements/",
-            "text": "Functional languages\n\u00b6\n\n\nFunctional languages gives certain guarantees over procedural languages like Solidity, namely immutability within a function and strong compile time checking. This can reduce the risk of errors by providing deterministic behavior. (for more see \nthis\n, Curry-Howard correspondence, and linear logic)",
+            "text": "Functional languages\n\u00b6\n\n\nFunctional languages give certain guarantees over procedural languages like Solidity, namely immutability within a function and strong compile time checking. This can reduce the risk of errors by providing deterministic behavior (for more see \nthis\n, Curry-Howard correspondence, and linear logic).",
             "title": "Future improvements"
         },
         {
             "location": "/future_improvements/#functional-languages",
-            "text": "Functional languages gives certain guarantees over procedural languages like Solidity, namely immutability within a function and strong compile time checking. This can reduce the risk of errors by providing deterministic behavior. (for more see  this , Curry-Howard correspondence, and linear logic)",
+            "text": "Functional languages give certain guarantees over procedural languages like Solidity, namely immutability within a function and strong compile time checking. This can reduce the risk of errors by providing deterministic behavior (for more see  this , Curry-Howard correspondence, and linear logic).",
             "title": "Functional languages"
         },
         {
