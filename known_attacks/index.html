@@ -14,24 +14,9 @@
         <meta name="author" content="ConsenSys">
       
       
-        <meta name="lang:clipboard.copy" content="Copy to clipboard">
-      
-        <meta name="lang:clipboard.copied" content="Copied to clipboard">
-      
-        <meta name="lang:search.languages" content="">
-      
-        <meta name="lang:search.result.none" content="No matching documents">
-      
-        <meta name="lang:search.result.one" content="1 matching document">
-      
-        <meta name="lang:search.result.other" content="# matching documents">
-      
-        <meta name="lang:search.tokenizer" content="[\s\-]+">
-      
-      
         <link rel="shortcut icon" href="../images/favicon.ico">
       
-      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.12.1">
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.10.3">
     
     
       
@@ -42,7 +27,7 @@
       <script src="../assets/javascripts/modernizr-e826f8942a.js"></script>
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application-04ea671600.css">
+      <link rel="stylesheet" href="../assets/stylesheets/application-9011e2d3f8.css">
       
     
     
@@ -115,8 +100,8 @@
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result">
-          <div class="md-search-result__meta">
+        <div class="md-search-result" data-md-component="result" data-md-lang-search="" data-md-lang-tokenizer="[\s\-]+">
+          <div class="md-search-result__meta" data-md-lang-result-none="No matching documents" data-md-lang-result-one="1 matching document" data-md-lang-result-other="# matching documents">
             Type to start searching
           </div>
           <ol class="md-search-result__list"></ol>
@@ -169,11 +154,11 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="drawer">
-    <span class="md-nav__button md-logo">
+    <div class="md-nav__button md-logo">
       
         <i class="md-icon md-icon--home"></i>
       
-    </span>
+    </div>
     Ethereum Smart Contract Best Practices
   </label>
   
@@ -604,9 +589,9 @@
 <span class="kd">mapping</span> <span class="p">(</span><span class="kt">address</span> <span class="o">=&gt;</span> <span class="kt">uint</span><span class="p">)</span> <span class="kr">private</span> <span class="n">userBalances</span><span class="p">;</span>
 
 <span class="kd">function</span> <span class="n">withdrawBalance</span><span class="p">()</span> <span class="kr">public</span> <span class="p">{</span>
-    <span class="kt">uint</span> <span class="n">amountToWithdraw</span> <span class="o">=</span> <span class="n">userBalances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="n">sender</span><span class="p">];</span>
-    <span class="n">require</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="n">sender</span><span class="p">.</span><span class="nb">call</span><span class="p">.</span><span class="n">value</span><span class="p">(</span><span class="n">amountToWithdraw</span><span class="p">)());</span> <span class="c1">// At this point, the caller&#39;s code is executed, and can call withdrawBalance again</span>
-    <span class="n">userBalances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="n">sender</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">uint</span> <span class="n">amountToWithdraw</span> <span class="o">=</span> <span class="n">userBalances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">];</span>
+    <span class="nb">require</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">.</span><span class="nb">call</span><span class="p">.</span><span class="nb">value</span><span class="p">(</span><span class="n">amountToWithdraw</span><span class="p">)());</span> <span class="c1">// At this point, the caller&#39;s code is executed, and can call withdrawBalance again</span>
+    <span class="n">userBalances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -616,9 +601,9 @@
 <div class="highlight"><pre><span></span><span class="kd">mapping</span> <span class="p">(</span><span class="kt">address</span> <span class="o">=&gt;</span> <span class="kt">uint</span><span class="p">)</span> <span class="kr">private</span> <span class="n">userBalances</span><span class="p">;</span>
 
 <span class="kd">function</span> <span class="n">withdrawBalance</span><span class="p">()</span> <span class="kr">public</span> <span class="p">{</span>
-    <span class="kt">uint</span> <span class="n">amountToWithdraw</span> <span class="o">=</span> <span class="n">userBalances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="n">sender</span><span class="p">];</span>
-    <span class="n">userBalances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="n">sender</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="n">require</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="n">sender</span><span class="p">.</span><span class="nb">call</span><span class="p">.</span><span class="n">value</span><span class="p">(</span><span class="n">amountToWithdraw</span><span class="p">)());</span> <span class="c1">// The user&#39;s balance is already 0, so future invocations won&#39;t withdraw anything</span>
+    <span class="kt">uint</span> <span class="n">amountToWithdraw</span> <span class="o">=</span> <span class="n">userBalances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">];</span>
+    <span class="n">userBalances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="nb">require</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">.</span><span class="nb">call</span><span class="p">.</span><span class="nb">value</span><span class="p">(</span><span class="n">amountToWithdraw</span><span class="p">)());</span> <span class="c1">// The user&#39;s balance is already 0, so future invocations won&#39;t withdraw anything</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -628,17 +613,17 @@
 <div class="highlight"><pre><span></span><span class="c1">// INSECURE</span>
 <span class="kd">mapping</span> <span class="p">(</span><span class="kt">address</span> <span class="o">=&gt;</span> <span class="kt">uint</span><span class="p">)</span> <span class="kr">private</span> <span class="n">userBalances</span><span class="p">;</span>
 
-<span class="kd">function</span> <span class="n">transfer</span><span class="p">(</span><span class="kt">address</span> <span class="n">to</span><span class="p">,</span> <span class="kt">uint</span> <span class="n">amount</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">userBalances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="n">sender</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">amount</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">function</span> <span class="nb">transfer</span><span class="p">(</span><span class="kt">address</span> <span class="n">to</span><span class="p">,</span> <span class="kt">uint</span> <span class="n">amount</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">userBalances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">amount</span><span class="p">)</span> <span class="p">{</span>
        <span class="n">userBalances</span><span class="p">[</span><span class="n">to</span><span class="p">]</span> <span class="o">+=</span> <span class="n">amount</span><span class="p">;</span>
-       <span class="n">userBalances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="n">sender</span><span class="p">]</span> <span class="o">-=</span> <span class="n">amount</span><span class="p">;</span>
+       <span class="n">userBalances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">]</span> <span class="o">-=</span> <span class="n">amount</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="kd">function</span> <span class="n">withdrawBalance</span><span class="p">()</span> <span class="kr">public</span> <span class="p">{</span>
-    <span class="kt">uint</span> <span class="n">amountToWithdraw</span> <span class="o">=</span> <span class="n">userBalances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="n">sender</span><span class="p">];</span>
-    <span class="n">require</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="n">sender</span><span class="p">.</span><span class="nb">call</span><span class="p">.</span><span class="n">value</span><span class="p">(</span><span class="n">amountToWithdraw</span><span class="p">)());</span> <span class="c1">// At this point, the caller&#39;s code is executed, and can call transfer()</span>
-    <span class="n">userBalances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="n">sender</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">uint</span> <span class="n">amountToWithdraw</span> <span class="o">=</span> <span class="n">userBalances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">];</span>
+    <span class="nb">require</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">.</span><span class="nb">call</span><span class="p">.</span><span class="nb">value</span><span class="p">(</span><span class="n">amountToWithdraw</span><span class="p">)());</span> <span class="c1">// At this point, the caller&#39;s code is executed, and can call transfer()</span>
+    <span class="n">userBalances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -655,11 +640,11 @@
 <span class="kd">function</span> <span class="n">withdraw</span><span class="p">(</span><span class="kt">address</span> <span class="n">recipient</span><span class="p">)</span> <span class="kr">public</span> <span class="p">{</span>
     <span class="kt">uint</span> <span class="n">amountToWithdraw</span> <span class="o">=</span> <span class="n">userBalances</span><span class="p">[</span><span class="n">recipient</span><span class="p">];</span>
     <span class="n">rewardsForA</span><span class="p">[</span><span class="n">recipient</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="n">require</span><span class="p">(</span><span class="n">recipient</span><span class="p">.</span><span class="nb">call</span><span class="p">.</span><span class="n">value</span><span class="p">(</span><span class="n">amountToWithdraw</span><span class="p">)());</span>
+    <span class="nb">require</span><span class="p">(</span><span class="n">recipient</span><span class="p">.</span><span class="nb">call</span><span class="p">.</span><span class="nb">value</span><span class="p">(</span><span class="n">amountToWithdraw</span><span class="p">)());</span>
 <span class="p">}</span>
 
 <span class="kd">function</span> <span class="n">getFirstWithdrawalBonus</span><span class="p">(</span><span class="kt">address</span> <span class="n">recipient</span><span class="p">)</span> <span class="kr">public</span> <span class="p">{</span>
-    <span class="n">require</span><span class="p">(</span><span class="o">!</span><span class="n">claimedBonus</span><span class="p">[</span><span class="n">recipient</span><span class="p">]);</span> <span class="c1">// Each recipient should only be able to claim the bonus once</span>
+    <span class="nb">require</span><span class="p">(</span><span class="o">!</span><span class="n">claimedBonus</span><span class="p">[</span><span class="n">recipient</span><span class="p">]);</span> <span class="c1">// Each recipient should only be able to claim the bonus once</span>
 
     <span class="n">rewardsForA</span><span class="p">[</span><span class="n">recipient</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">100</span><span class="p">;</span>
     <span class="n">withdraw</span><span class="p">(</span><span class="n">recipient</span><span class="p">);</span> <span class="c1">// At this point, the caller will be able to execute getFirstWithdrawalBonus again.</span>
@@ -675,11 +660,11 @@
 <span class="kd">function</span> <span class="n">untrustedWithdraw</span><span class="p">(</span><span class="kt">address</span> <span class="n">recipient</span><span class="p">)</span> <span class="kr">public</span> <span class="p">{</span>
     <span class="kt">uint</span> <span class="n">amountToWithdraw</span> <span class="o">=</span> <span class="n">userBalances</span><span class="p">[</span><span class="n">recipient</span><span class="p">];</span>
     <span class="n">rewardsForA</span><span class="p">[</span><span class="n">recipient</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="n">require</span><span class="p">(</span><span class="n">recipient</span><span class="p">.</span><span class="nb">call</span><span class="p">.</span><span class="n">value</span><span class="p">(</span><span class="n">amountToWithdraw</span><span class="p">)());</span>
+    <span class="nb">require</span><span class="p">(</span><span class="n">recipient</span><span class="p">.</span><span class="nb">call</span><span class="p">.</span><span class="nb">value</span><span class="p">(</span><span class="n">amountToWithdraw</span><span class="p">)());</span>
 <span class="p">}</span>
 
 <span class="kd">function</span> <span class="n">untrustedGetFirstWithdrawalBonus</span><span class="p">(</span><span class="kt">address</span> <span class="n">recipient</span><span class="p">)</span> <span class="kr">public</span> <span class="p">{</span>
-    <span class="n">require</span><span class="p">(</span><span class="n">claimedBonus</span><span class="p">[</span><span class="n">recipient</span><span class="p">]);</span> <span class="c1">// Each recipient should only be able to claim the bonus once</span>
+    <span class="nb">require</span><span class="p">(</span><span class="n">claimedBonus</span><span class="p">[</span><span class="n">recipient</span><span class="p">]);</span> <span class="c1">// Each recipient should only be able to claim the bonus once</span>
 
     <span class="n">claimedBonus</span><span class="p">[</span><span class="n">recipient</span><span class="p">]</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
     <span class="n">rewardsForA</span><span class="p">[</span><span class="n">recipient</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">100</span><span class="p">;</span>
@@ -694,19 +679,19 @@
 <span class="kt">bool</span> <span class="kr">private</span> <span class="n">lockBalances</span><span class="p">;</span>
 
 <span class="kd">function</span> <span class="n">deposit</span><span class="p">()</span> <span class="kr">payable</span> <span class="kr">public</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">require</span><span class="p">(</span><span class="o">!</span><span class="n">lockBalances</span><span class="p">);</span>
+    <span class="nb">require</span><span class="p">(</span><span class="o">!</span><span class="n">lockBalances</span><span class="p">);</span>
     <span class="n">lockBalances</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-    <span class="n">balances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="n">sender</span><span class="p">]</span> <span class="o">+=</span> <span class="nb">msg</span><span class="p">.</span><span class="n">value</span><span class="p">;</span>
+    <span class="n">balances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">]</span> <span class="o">+=</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">value</span><span class="p">;</span>
     <span class="n">lockBalances</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
     <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="kd">function</span> <span class="n">withdraw</span><span class="p">(</span><span class="kt">uint</span> <span class="n">amount</span><span class="p">)</span> <span class="kr">payable</span> <span class="kr">public</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">require</span><span class="p">(</span><span class="o">!</span><span class="n">lockBalances</span> <span class="o">&amp;&amp;</span> <span class="n">amount</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">balances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="n">sender</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">amount</span><span class="p">);</span>
+    <span class="nb">require</span><span class="p">(</span><span class="o">!</span><span class="n">lockBalances</span> <span class="o">&amp;&amp;</span> <span class="n">amount</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">balances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">amount</span><span class="p">);</span>
     <span class="n">lockBalances</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
 
-    <span class="k">if</span> <span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="n">sender</span><span class="p">.</span><span class="nb">call</span><span class="p">(</span><span class="n">amount</span><span class="p">)())</span> <span class="p">{</span> <span class="c1">// Normally insecure, but the mutex saves it</span>
-      <span class="n">balances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="n">sender</span><span class="p">]</span> <span class="o">-=</span> <span class="n">amount</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">.</span><span class="nb">call</span><span class="p">(</span><span class="n">amount</span><span class="p">)())</span> <span class="p">{</span> <span class="c1">// Normally insecure, but the mutex saves it</span>
+      <span class="n">balances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">]</span> <span class="o">-=</span> <span class="n">amount</span><span class="p">;</span>
     <span class="p">}</span>
 
     <span class="n">lockBalances</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
@@ -721,8 +706,8 @@
     <span class="kt">address</span> <span class="kr">private</span> <span class="n">lockHolder</span><span class="p">;</span>
 
     <span class="kd">function</span> <span class="n">getLock</span><span class="p">()</span> <span class="p">{</span>
-        <span class="n">require</span><span class="p">(</span><span class="n">lockHolder</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
-        <span class="n">lockHolder</span> <span class="o">=</span> <span class="nb">msg</span><span class="p">.</span><span class="n">sender</span><span class="p">;</span>
+        <span class="nb">require</span><span class="p">(</span><span class="n">lockHolder</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="n">lockHolder</span> <span class="o">=</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">;</span>
     <span class="p">}</span>
 
     <span class="kd">function</span> <span class="n">releaseLock</span><span class="p">()</span> <span class="p">{</span>
@@ -730,7 +715,7 @@
     <span class="p">}</span>
 
     <span class="kd">function</span> <span class="n">set</span><span class="p">(</span><span class="kt">uint</span> <span class="n">newState</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">require</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="n">sender</span> <span class="o">==</span> <span class="n">lockHolder</span><span class="p">);</span>
+        <span class="nb">require</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span> <span class="o">==</span> <span class="n">lockHolder</span><span class="p">);</span>
         <span class="n">n</span> <span class="o">=</span> <span class="n">newState</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -762,21 +747,21 @@
 <div class="highlight"><pre><span></span><span class="kd">mapping</span> <span class="p">(</span><span class="kt">address</span> <span class="o">=&gt;</span> <span class="kt">uint256</span><span class="p">)</span> <span class="kr">public</span> <span class="n">balanceOf</span><span class="p">;</span>
 
 <span class="c1">// INSECURE</span>
-<span class="kd">function</span> <span class="n">transfer</span><span class="p">(</span><span class="kt">address</span> <span class="n">_to</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">_value</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">function</span> <span class="nb">transfer</span><span class="p">(</span><span class="kt">address</span> <span class="n">_to</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">_value</span><span class="p">)</span> <span class="p">{</span>
     <span class="cm">/* Check if sender has balance */</span>
-    <span class="n">require</span><span class="p">(</span><span class="n">balanceOf</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="n">sender</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">_value</span><span class="p">);</span>
+    <span class="nb">require</span><span class="p">(</span><span class="n">balanceOf</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">_value</span><span class="p">);</span>
     <span class="cm">/* Add and subtract new balances */</span>
-    <span class="n">balanceOf</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="n">sender</span><span class="p">]</span> <span class="o">-=</span> <span class="n">_value</span><span class="p">;</span>
+    <span class="n">balanceOf</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">]</span> <span class="o">-=</span> <span class="n">_value</span><span class="p">;</span>
     <span class="n">balanceOf</span><span class="p">[</span><span class="n">_to</span><span class="p">]</span> <span class="o">+=</span> <span class="n">_value</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="c1">// SECURE</span>
-<span class="kd">function</span> <span class="n">transfer</span><span class="p">(</span><span class="kt">address</span> <span class="n">_to</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">_value</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">function</span> <span class="nb">transfer</span><span class="p">(</span><span class="kt">address</span> <span class="n">_to</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">_value</span><span class="p">)</span> <span class="p">{</span>
     <span class="cm">/* Check if sender has balance and for overflows */</span>
-    <span class="n">require</span><span class="p">(</span><span class="n">balanceOf</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="n">sender</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">_value</span> <span class="o">&amp;&amp;</span> <span class="n">balanceOf</span><span class="p">[</span><span class="n">_to</span><span class="p">]</span> <span class="o">+</span> <span class="n">_value</span> <span class="o">&gt;=</span> <span class="n">balanceOf</span><span class="p">[</span><span class="n">_to</span><span class="p">]);</span>
+    <span class="nb">require</span><span class="p">(</span><span class="n">balanceOf</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">_value</span> <span class="o">&amp;&amp;</span> <span class="n">balanceOf</span><span class="p">[</span><span class="n">_to</span><span class="p">]</span> <span class="o">+</span> <span class="n">_value</span> <span class="o">&gt;=</span> <span class="n">balanceOf</span><span class="p">[</span><span class="n">_to</span><span class="p">]);</span>
 
     <span class="cm">/* Add and subtract new balances */</span>
-    <span class="n">balanceOf</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="n">sender</span><span class="p">]</span> <span class="o">-=</span> <span class="n">_value</span><span class="p">;</span>
+    <span class="n">balanceOf</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">]</span> <span class="o">-=</span> <span class="n">_value</span><span class="p">;</span>
     <span class="n">balanceOf</span><span class="p">[</span><span class="n">_to</span><span class="p">]</span> <span class="o">+=</span> <span class="n">_value</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
@@ -794,12 +779,12 @@
     <span class="kt">uint</span> <span class="n">highestBid</span><span class="p">;</span>
 
     <span class="kd">function</span> <span class="n">bid</span><span class="p">()</span> <span class="kr">payable</span> <span class="p">{</span>
-        <span class="n">require</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="n">value</span> <span class="o">&gt;</span> <span class="n">highestBid</span><span class="p">);</span>
+        <span class="nb">require</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">value</span> <span class="o">&gt;</span> <span class="n">highestBid</span><span class="p">);</span>
 
-        <span class="n">require</span><span class="p">(</span><span class="n">currentLeader</span><span class="p">.</span><span class="nb">send</span><span class="p">(</span><span class="n">highestBid</span><span class="p">));</span> <span class="c1">// Refund the old leader, if it fails then revert</span>
+        <span class="nb">require</span><span class="p">(</span><span class="n">currentLeader</span><span class="p">.</span><span class="nb">send</span><span class="p">(</span><span class="n">highestBid</span><span class="p">));</span> <span class="c1">// Refund the old leader, if it fails then revert</span>
 
-        <span class="n">currentLeader</span> <span class="o">=</span> <span class="nb">msg</span><span class="p">.</span><span class="n">sender</span><span class="p">;</span>
-        <span class="n">highestBid</span> <span class="o">=</span> <span class="nb">msg</span><span class="p">.</span><span class="n">value</span><span class="p">;</span>
+        <span class="n">currentLeader</span> <span class="o">=</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">;</span>
+        <span class="n">highestBid</span> <span class="o">=</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">value</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -812,7 +797,7 @@
 <span class="c1">// bad</span>
 <span class="kd">function</span> <span class="n">refundAll</span><span class="p">()</span> <span class="kr">public</span> <span class="p">{</span>
     <span class="k">for</span><span class="p">(</span><span class="kt">uint</span> <span class="n">x</span><span class="p">;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">refundAddresses</span><span class="p">.</span><span class="n">length</span><span class="p">;</span> <span class="n">x</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// arbitrary length iteration based on how many addresses participated</span>
-        <span class="n">require</span><span class="p">(</span><span class="n">refundAddresses</span><span class="p">[</span><span class="n">x</span><span class="p">].</span><span class="nb">send</span><span class="p">(</span><span class="n">refunds</span><span class="p">[</span><span class="n">refundAddresses</span><span class="p">[</span><span class="n">x</span><span class="p">]]))</span> <span class="c1">// doubly bad, now a single failure on send will hold up all funds</span>
+        <span class="nb">require</span><span class="p">(</span><span class="n">refundAddresses</span><span class="p">[</span><span class="n">x</span><span class="p">].</span><span class="nb">send</span><span class="p">(</span><span class="n">refunds</span><span class="p">[</span><span class="n">refundAddresses</span><span class="p">[</span><span class="n">x</span><span class="p">]]))</span> <span class="c1">// doubly bad, now a single failure on send will hold up all funds</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -825,15 +810,15 @@
 <p>If you absolutely must loop over an array of unknown size, then you should plan for it to potentially take multiple blocks, and therefore require multiple transactions. You will need to keep track of how far you've gone, and be able to resume from that point, as in the following example:</p>
 <div class="highlight"><pre><span></span><span class="kd">struct</span> <span class="n">Payee</span> <span class="p">{</span>
     <span class="kt">address</span> <span class="n">addr</span><span class="p">;</span>
-    <span class="kt">uint256</span> <span class="n">value</span><span class="p">;</span>
+    <span class="kt">uint256</span> <span class="nb">value</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="n">Payee</span> <span class="n">payees</span><span class="p">[];</span>
 <span class="kt">uint256</span> <span class="n">nextPayeeIndex</span><span class="p">;</span>
 
 <span class="kd">function</span> <span class="n">payOut</span><span class="p">()</span> <span class="p">{</span>
     <span class="kt">uint256</span> <span class="n">i</span> <span class="o">=</span> <span class="n">nextPayeeIndex</span><span class="p">;</span>
-    <span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">payees</span><span class="p">.</span><span class="n">length</span> <span class="o">&amp;&amp;</span> <span class="nb">msg</span><span class="p">.</span><span class="n">gas</span> <span class="o">&gt;</span> <span class="mi">200000</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">payees</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">addr</span><span class="p">.</span><span class="nb">send</span><span class="p">(</span><span class="n">payees</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">value</span><span class="p">);</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">payees</span><span class="p">.</span><span class="n">length</span> <span class="o">&amp;&amp;</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">gas</span> <span class="o">&gt;</span> <span class="mi">200000</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">payees</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">addr</span><span class="p">.</span><span class="nb">send</span><span class="p">(</span><span class="n">payees</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="nb">value</span><span class="p">);</span>
       <span class="n">i</span><span class="o">++</span><span class="p">;</span>
     <span class="p">}</span>
     <span class="n">nextPayeeIndex</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
@@ -912,10 +897,10 @@
       
     </div>
     
-      <script src="../assets/javascripts/application-946997f430.js"></script>
+      <script src="../assets/javascripts/application-f3ab9e5ff8.js"></script>
       
       
-      <script>app.initialize({version:"0.16.3",url:{base:".."}})</script>
+      <script>app.initialize({url:{base:".."}})</script>
       
     
     
