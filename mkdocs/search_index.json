@@ -292,7 +292,7 @@
         },
         {
             "location": "/security_tools/",
-            "text": "Static Analysis\n\u00b6\n\n\n\n\nManticore\n - Dynamic binary analysis tool with \nEVM support\n\n\nMythril\n - Reversing and bug hunting framework for the Ethereum blockchain\n\n\nOyente\n - Analyze Ethereum code to find common vulnerabilities, based on this \npaper\n.\n\n\nSolgraph\n - Generates a DOT graph that visualizes function control flow of a Solidity contract and highlights potential security vulnerabilities.\n\n\n\n\nTest Coverage\n\u00b6\n\n\n\n\nsolidity-coverage\n - Code coverage for Solidity testing.\n\n\n\n\nLinters\n\u00b6\n\n\nLinters improve code quality by enforcing rules for style and composition, making code easier to read and review.\n\n\n\n\nSolcheck\n - A linter for Solidity code written in JS and heavily inspired by eslint.\n\n\nSolint\n - Solidity linting that helps you enforce consistent conventions and avoid errors in your Solidity smart-contracts.\n\n\nSolium\n - Yet another Solidity linting.",
+            "text": "Static Analysis\n\u00b6\n\n\n\n\nManticore\n - Dynamic binary analysis tool with \nEVM support\n\n\nMythril\n - Reversing and bug hunting framework for the Ethereum blockchain\n\n\nOyente\n - Analyze Ethereum code to find common vulnerabilities, based on this \npaper\n.\n\n\nSolgraph\n - Generates a DOT graph that visualizes function control flow of a Solidity contract and highlights potential security vulnerabilities.\n\n\n\n\nTest Coverage\n\u00b6\n\n\n\n\nsolidity-coverage\n - Code coverage for Solidity testing.\n\n\n\n\nLinters\n\u00b6\n\n\nLinters improve code quality by enforcing rules for style and composition, making code easier to read and review.\n\n\n\n\nSolcheck\n - A linter for Solidity code written in JS and heavily inspired by eslint.\n\n\nSolint\n - Solidity linting that helps you enforce consistent conventions and avoid errors in your Solidity smart-contracts.\n\n\nSolium\n - Yet another Solidity linting.\n\n\nSolhint\n - A linter for Solidity that provides both Security and Style Guide validations.",
             "title": "Security Tools"
         },
         {
@@ -307,7 +307,7 @@
         },
         {
             "location": "/security_tools/#linters",
-            "text": "Linters improve code quality by enforcing rules for style and composition, making code easier to read and review.   Solcheck  - A linter for Solidity code written in JS and heavily inspired by eslint.  Solint  - Solidity linting that helps you enforce consistent conventions and avoid errors in your Solidity smart-contracts.  Solium  - Yet another Solidity linting.",
+            "text": "Linters improve code quality by enforcing rules for style and composition, making code easier to read and review.   Solcheck  - A linter for Solidity code written in JS and heavily inspired by eslint.  Solint  - Solidity linting that helps you enforce consistent conventions and avoid errors in your Solidity smart-contracts.  Solium  - Yet another Solidity linting.  Solhint  - A linter for Solidity that provides both Security and Style Guide validations.",
             "title": "Linters"
         },
         {
