@@ -326,6 +326,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#built-in-shadowing" title="Built-in Shadowing" class="md-nav__link">
+    Built-in Shadowing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#forcibly-sending-ether-to-a-contract" title="Forcibly Sending Ether to a Contract" class="md-nav__link">
+    Forcibly Sending Ether to a Contract
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -557,6 +571,20 @@
         <li class="md-nav__item">
   <a href="#call-depth-attack" title="Call Depth Attack" class="md-nav__link">
     Call Depth Attack
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#built-in-shadowing" title="Built-in Shadowing" class="md-nav__link">
+    Built-in Shadowing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#forcibly-sending-ether-to-a-contract" title="Forcibly Sending Ether to a Contract" class="md-nav__link">
+    Forcibly Sending Ether to a Contract
   </a>
   
 </li>
@@ -828,6 +856,38 @@
 <p>You will need to make sure that nothing bad will happen if other transactions are processed while waiting for the next iteration of the <code>payOut()</code> function. So only use this pattern if absolutely necessary.</p>
 <h3 id="call-depth-attack"><del>Call Depth Attack</del><a class="headerlink" href="#call-depth-attack" title="Permanent link">&para;</a></h3>
 <p>As of the <a href="https://github.com/ethereum/EIPs/issues/150">EIP 150</a> hardfork, call depth attacks are no longer relevant<sup><a href='http://ethereum.stackexchange.com/questions/9398/how-does-eip-150-change-the-call-depth-attack'>*</a></sup> (all gas would be consumed well before reaching the 1024 call depth limit).</p>
+<h3 id="built-in-shadowing">Built-in Shadowing<a class="headerlink" href="#built-in-shadowing" title="Permanent link">&para;</a></h3>
+<p>It is currently possible to <a href="https://en.wikipedia.org/wiki/Variable_shadowing">shadow</a> built-in globals in Solidity. This allows contracts to override the functionality of built-ins such as <code>msg</code> and <code>revert()</code>. Although this <a href="https://github.com/ethereum/solidity/issues/1249">is intended</a>, it can mislead users of a contract as to the contract's true behavior.</p>
+<div class="highlight"><pre><span></span><span class="kd">contract</span> <span class="n">PretendingToRevert</span> <span class="p">{</span>
+    <span class="kd">function</span> <span class="nb">revert</span><span class="p">()</span> <span class="kr">internal</span> <span class="kr">constant</span> <span class="p">{}</span>
+<span class="p">}</span>
+
+<span class="kd">contract</span> <span class="n">ExampleContract</span> <span class="kr">is</span> <span class="n">PretendingToRevert</span> <span class="p">{</span>
+    <span class="kd">function</span> <span class="n">somethingBad</span><span class="p">()</span> <span class="kr">public</span> <span class="p">{</span>
+        <span class="nb">revert</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Contract users (and auditors) should be aware of the full smart contract source code of any application they intend to use. </p>
+<h3 id="forcibly-sending-ether-to-a-contract">Forcibly Sending Ether to a Contract<a class="headerlink" href="#forcibly-sending-ether-to-a-contract" title="Permanent link">&para;</a></h3>
+<p>It is possible to forcibly send Ether to a contract without triggering its fallback function. This is an important consideration when placing important logic in the fallback function or making calculations based on a contract's balance. Take the following example:</p>
+<div class="highlight"><pre><span></span><span class="kd">contract</span> <span class="n">Vulnerable</span> <span class="p">{</span>
+    <span class="kd">function</span> <span class="p">()</span> <span class="kr">payable</span> <span class="p">{</span>
+        <span class="nb">revert</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="n">somethingBad</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nb">require</span><span class="p">(</span><span class="nb">this</span><span class="p">.</span><span class="nb">balance</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="c1">// Do something bad</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Contract logic seems to disallow payments to the contract and therefore disallow "something bad" from happening. However, a few methods exist for forcibly sending ether to the contract and therefore making its balance greater than zero. </p>
+<p>The <code>selfdestruct</code> contract method allows a user to specify a beneficiary to send any excess ether. <code>selfdestruct</code> <a href="https://solidity.readthedocs.io/en/develop/security-considerations.html#sending-and-receiving-ether">does not trigger a contract's fallback function</a>. </p>
+<p>It is also possible to <a href="https://github.com/Arachnid/uscc/tree/master/submissions-2017/ricmoo">precompute</a> a contract's address and send Ether to that address before deploying the contract.</p>
+<p>Contract developers should be aware that Ether can be forcibly sent to a contract and should design contract logic accordingly. Generally, assume that it is not possible to restrict sources of funding to your contract. </p>
                 
                   
                 
