@@ -391,6 +391,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#be-aware-that-built-ins-can-be-shadowed" title="Be aware that 'Built-ins' can be shadowed" class="md-nav__link">
+    Be aware that 'Built-ins' can be shadowed
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -715,6 +722,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#be-aware-that-built-ins-can-be-shadowed" title="Be aware that 'Built-ins' can be shadowed" class="md-nav__link">
+    Be aware that 'Built-ins' can be shadowed
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -956,6 +970,20 @@ cannot be prevented.</p>
 
 <h3 id="prefer-newer-solidity-constructs">Prefer newer Solidity constructs<a class="headerlink" href="#prefer-newer-solidity-constructs" title="Permanent link">&para;</a></h3>
 <p>Prefer constructs/aliases such as <code>selfdestruct</code> (over <code>suicide</code>) and <code>keccak256</code> (over <code>sha3</code>).  Patterns like <code>require(msg.sender.send(1 ether))</code> can also be simplified to using <code>transfer()</code>, as in <code>msg.sender.transfer(1 ether)</code>.</p>
+<h3 id="be-aware-that-built-ins-can-be-shadowed">Be aware that 'Built-ins' can be shadowed<a class="headerlink" href="#be-aware-that-built-ins-can-be-shadowed" title="Permanent link">&para;</a></h3>
+<p>It is currently possible to <a href="https://en.wikipedia.org/wiki/Variable_shadowing">shadow</a> built-in globals in Solidity. This allows contracts to override the functionality of built-ins such as <code>msg</code> and <code>revert()</code>. Although this <a href="https://github.com/ethereum/solidity/issues/1249">is intended</a>, it can mislead users of a contract as to the contract's true behavior.</p>
+<div class="highlight"><pre><span></span><span class="kd">contract</span> <span class="n">PretendingToRevert</span> <span class="p">{</span>
+    <span class="kd">function</span> <span class="nb">revert</span><span class="p">()</span> <span class="kr">internal</span> <span class="kr">constant</span> <span class="p">{}</span>
+<span class="p">}</span>
+
+<span class="kd">contract</span> <span class="n">ExampleContract</span> <span class="kr">is</span> <span class="n">PretendingToRevert</span> <span class="p">{</span>
+    <span class="kd">function</span> <span class="n">somethingBad</span><span class="p">()</span> <span class="kr">public</span> <span class="p">{</span>
+        <span class="nb">revert</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Contract users (and auditors) should be aware of the full smart contract source code of any application they intend to use. </p>
                 
                   
                 
