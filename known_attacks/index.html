@@ -621,9 +621,9 @@
                   <h1>Known Attacks</h1>
                 
                 <p>The following is a list of known attacks which you should be aware of, and defend against when writing smart contracts.</p>
-<h3 id="race-conditions42">Race Conditions<sup><a href='#footnote-race-condition-terminology'>*</a></sup><a class="headerlink" href="#race-conditions42" title="Permanent link">&para;</a></h3>
+<h2 id="race-conditions42">Race Conditions<sup><a href='#footnote-race-condition-terminology'>*</a></sup><a class="headerlink" href="#race-conditions42" title="Permanent link">&para;</a></h2>
 <p>One of the major dangers of calling external contracts is that they can take over the control flow, and make changes to your data that the calling function wasn't expecting. This class of bug can take many forms, and both of the major bugs that led to the DAO's collapse were bugs of this sort.</p>
-<h4 id="reentrancy">Reentrancy<a class="headerlink" href="#reentrancy" title="Permanent link">&para;</a></h4>
+<h3 id="reentrancy">Reentrancy<a class="headerlink" href="#reentrancy" title="Permanent link">&para;</a></h3>
 <p>The first version of this bug to be noticed involved functions that could be called repeatedly, before the first invocation of the function was finished. This may cause the different invocations of the function to interact in destructive ways.</p>
 <div class="highlight"><pre><span></span><span class="c1">// INSECURE</span>
 <span class="kd">mapping</span> <span class="p">(</span><span class="kt">address</span> <span class="o">=&gt;</span> <span class="kt">uint</span><span class="p">)</span> <span class="kr">private</span> <span class="n">userBalances</span><span class="p">;</span>
@@ -648,7 +648,7 @@
 </pre></div>
 
 <p>Note that if you had another function which called <code>withdrawBalance()</code>, it would be potentially subject to the same attack, so you must treat any function which calls an untrusted contract as itself untrusted. See below for further discussion of potential solutions.</p>
-<h4 id="cross-function-race-conditions">Cross-function Race Conditions<a class="headerlink" href="#cross-function-race-conditions" title="Permanent link">&para;</a></h4>
+<h3 id="cross-function-race-conditions">Cross-function Race Conditions<a class="headerlink" href="#cross-function-race-conditions" title="Permanent link">&para;</a></h3>
 <p>An attacker may also be able to do a similar attack using two different functions that share the same state.</p>
 <div class="highlight"><pre><span></span><span class="c1">// INSECURE</span>
 <span class="kd">mapping</span> <span class="p">(</span><span class="kt">address</span> <span class="o">=&gt;</span> <span class="kt">uint</span><span class="p">)</span> <span class="kr">private</span> <span class="n">userBalances</span><span class="p">;</span>
@@ -669,7 +669,7 @@
 
 <p>In this case, the attacker calls <code>transfer()</code> when their code is executed on the external call in <code>withdrawBalance</code>. Since their balance has not yet been set to 0, they are able to transfer the tokens even though they already received the withdrawal. This vulnerability was also used in the DAO attack.</p>
 <p>The same solutions will work, with the same caveats. Also note that in this example, both functions were part of the same contract. However, the same bug can occur across multiple contracts, if those contracts share state.</p>
-<h4 id="pitfalls-in-race-condition-solutions">Pitfalls in Race Condition Solutions<a class="headerlink" href="#pitfalls-in-race-condition-solutions" title="Permanent link">&para;</a></h4>
+<h3 id="pitfalls-in-race-condition-solutions">Pitfalls in Race Condition Solutions<a class="headerlink" href="#pitfalls-in-race-condition-solutions" title="Permanent link">&para;</a></h3>
 <p>Since race conditions can occur across multiple functions, and even multiple contracts, any solution aimed at preventing reentry will not be sufficient.</p>
 <p>Instead, we have recommended finishing all internal work first, and only then calling the external function. This rule, if followed carefully, will allow you to avoid race conditions. However, you need to not only avoid calling external functions too soon, but also avoid calling functions which call external functions. For example, the following is insecure:</p>
 <div class="highlight"><pre><span></span><span class="c1">// INSECURE</span>
@@ -765,10 +765,10 @@
 <p><a name='footnote-race-condition-terminology'></a></p>
 <div style='font-size: 80%; display: inline;'>* Some may object to the use of the term <i>race condition</i> since Ethereum does not currently have true parallelism. However, there is still the fundamental feature of logically distinct processes contending for resources, and the same sorts of pitfalls and potential solutions apply.</div>
 
-<h3 id="transaction-ordering-dependence-tod-front-running">Transaction-Ordering Dependence (TOD) / Front Running<a class="headerlink" href="#transaction-ordering-dependence-tod-front-running" title="Permanent link">&para;</a></h3>
+<h2 id="transaction-ordering-dependence-tod-front-running">Transaction-Ordering Dependence (TOD) / Front Running<a class="headerlink" href="#transaction-ordering-dependence-tod-front-running" title="Permanent link">&para;</a></h2>
 <p>Above were examples of race conditions involving the attacker executing malicious code <em>within a single transaction</em>. The following are a different type of race condition inherent to Blockchains: the fact that <em>the order of transactions themselves</em> (within a block) is easily subject to manipulation.</p>
 <p>Since a transaction is in the mempool for a short while, one can know what actions will occur, before it is included in a block. This can be troublesome for things like decentralized markets, where a transaction to buy some tokens can be seen, and a market order implemented before the other transaction gets included. Protecting against this is difficult, as it would come down to the specific contract itself. For example, in markets, it would be better to implement batch auctions (this also protects against high frequency trading concerns). Another way to use a pre-commit scheme (“I’m going to submit the details later”).</p>
-<h3 id="timestamp-dependence">Timestamp Dependence<a class="headerlink" href="#timestamp-dependence" title="Permanent link">&para;</a></h3>
+<h2 id="timestamp-dependence">Timestamp Dependence<a class="headerlink" href="#timestamp-dependence" title="Permanent link">&para;</a></h2>
 <p>Be aware that the timestamp of the block can be manipulated by the miner, and all direct and indirect uses of the timestamp should be considered. <em>Block numbers</em> and <em>average block time</em> can be used to estimate time, but this is not future proof as block times may change (such as the changes expected during Casper).</p>
 <div class="highlight"><pre><span></span><span class="kt">uint</span> <span class="n">someVariable</span> <span class="o">=</span> <span class="nb">now</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
 
@@ -781,7 +781,7 @@
 <span class="p">}</span>
 </pre></div>
 
-<h3 id="integer-overflow-and-underflow">Integer Overflow and Underflow<a class="headerlink" href="#integer-overflow-and-underflow" title="Permanent link">&para;</a></h3>
+<h2 id="integer-overflow-and-underflow">Integer Overflow and Underflow<a class="headerlink" href="#integer-overflow-and-underflow" title="Permanent link">&para;</a></h2>
 <p>Be aware there are around <a href="https://github.com/ethereum/solidity/issues/796#issuecomment-253578925">20 cases for overflow and underflow</a>.</p>
 <p>Consider a simple token transfer:</p>
 <div class="highlight"><pre><span></span><span class="kd">mapping</span> <span class="p">(</span><span class="kt">address</span> <span class="o">=&gt;</span> <span class="kt">uint256</span><span class="p">)</span> <span class="kr">public</span> <span class="n">balanceOf</span><span class="p">;</span>
@@ -811,7 +811,7 @@
 <p>Be careful with the smaller data-types like uint8, uint16, uint24...etc: they can even more easily hit their maximum value.</p>
 <p>Be aware there are around <a href="https://github.com/ethereum/solidity/issues/796#issuecomment-253578925">20 cases for overflow and underflow</a>.</p>
 <p><a name="dos-with-unexpected-revert"></a></p>
-<h3 id="dos-with-unexpected-revert">DoS with (Unexpected) revert<a class="headerlink" href="#dos-with-unexpected-revert" title="Permanent link">&para;</a></h3>
+<h2 id="dos-with-unexpected-revert">DoS with (Unexpected) revert<a class="headerlink" href="#dos-with-unexpected-revert" title="Permanent link">&para;</a></h2>
 <p>Consider a simple auction contract:</p>
 <div class="highlight"><pre><span></span><span class="c1">// INSECURE</span>
 <span class="kd">contract</span> <span class="n">Auction</span> <span class="p">{</span>
@@ -843,7 +843,7 @@
 </pre></div>
 
 <p>Again, the recommended solution is to <a href="#favor-pull-over-push-payments">favor pull over push payments</a>.</p>
-<h3 id="dos-with-block-gas-limit">DoS with Block Gas Limit<a class="headerlink" href="#dos-with-block-gas-limit" title="Permanent link">&para;</a></h3>
+<h2 id="dos-with-block-gas-limit">DoS with Block Gas Limit<a class="headerlink" href="#dos-with-block-gas-limit" title="Permanent link">&para;</a></h2>
 <p>You may have noticed another problem with the previous example: by paying out to everyone at once, you risk running into the block gas limit. Each Ethereum block can process a certain maximum amount of computation. If you try to go over that, your transaction will fail.</p>
 <p>This can lead to problems even in the absence of an intentional attack. However, it's especially bad if an attacker can manipulate the amount of gas needed. In the case of the previous example, the attacker could add a bunch of addresses, each of which needs to get a very small refund. The gas cost of refunding each of the attacker's addresses could, therefore, end up being more than the gas limit, blocking the refund transaction from happening at all.</p>
 <p>This is another reason to <a href="#favor-pull-over-push-payments">favor pull over push payments</a>.</p>
@@ -852,7 +852,8 @@
     <span class="kt">address</span> <span class="n">addr</span><span class="p">;</span>
     <span class="kt">uint256</span> <span class="nb">value</span><span class="p">;</span>
 <span class="p">}</span>
-<span class="n">Payee</span> <span class="n">payees</span><span class="p">[];</span>
+
+<span class="n">Payee</span><span class="p">[]</span> <span class="n">payees</span><span class="p">;</span>
 <span class="kt">uint256</span> <span class="n">nextPayeeIndex</span><span class="p">;</span>
 
 <span class="kd">function</span> <span class="n">payOut</span><span class="p">()</span> <span class="p">{</span>
@@ -866,7 +867,7 @@
 </pre></div>
 
 <p>You will need to make sure that nothing bad will happen if other transactions are processed while waiting for the next iteration of the <code>payOut()</code> function. So only use this pattern if absolutely necessary.</p>
-<h3 id="forcibly-sending-ether-to-a-contract">Forcibly Sending Ether to a Contract<a class="headerlink" href="#forcibly-sending-ether-to-a-contract" title="Permanent link">&para;</a></h3>
+<h2 id="forcibly-sending-ether-to-a-contract">Forcibly Sending Ether to a Contract<a class="headerlink" href="#forcibly-sending-ether-to-a-contract" title="Permanent link">&para;</a></h2>
 <p>It is possible to forcibly send Ether to a contract without triggering its fallback function. This is an important consideration when placing important logic in the fallback function or making calculations based on a contract's balance. Take the following example:</p>
 <div class="highlight"><pre><span></span><span class="kd">contract</span> <span class="n">Vulnerable</span> <span class="p">{</span>
     <span class="kd">function</span> <span class="p">()</span> <span class="kr">payable</span> <span class="p">{</span>
@@ -884,9 +885,9 @@
 <p>The <code>selfdestruct</code> contract method allows a user to specify a beneficiary to send any excess ether. <code>selfdestruct</code> <a href="https://solidity.readthedocs.io/en/develop/security-considerations.html#sending-and-receiving-ether">does not trigger a contract's fallback function</a>. </p>
 <p>It is also possible to <a href="https://github.com/Arachnid/uscc/tree/master/submissions-2017/ricmoo">precompute</a> a contract's address and send Ether to that address before deploying the contract.</p>
 <p>Contract developers should be aware that Ether can be forcibly sent to a contract and should design contract logic accordingly. Generally, assume that it is not possible to restrict sources of funding to your contract. </p>
-<h3 id="deprecatedhistorical-attacks">Deprecated/historical attacks<a class="headerlink" href="#deprecatedhistorical-attacks" title="Permanent link">&para;</a></h3>
+<h2 id="deprecatedhistorical-attacks">Deprecated/historical attacks<a class="headerlink" href="#deprecatedhistorical-attacks" title="Permanent link">&para;</a></h2>
 <p>These are attacks which are no longer possible due to changes in the protocol or improvements to solidity. They are recorded here for posterity and awareness. </p>
-<h4 id="call-depth-attack-deprecated">Call Depth Attack (deprecated)<a class="headerlink" href="#call-depth-attack-deprecated" title="Permanent link">&para;</a></h4>
+<h3 id="call-depth-attack-deprecated">Call Depth Attack (deprecated)<a class="headerlink" href="#call-depth-attack-deprecated" title="Permanent link">&para;</a></h3>
 <p>As of the <a href="https://github.com/ethereum/EIPs/issues/150">EIP 150</a> hardfork, call depth attacks are no longer relevant<sup><a href='http://ethereum.stackexchange.com/questions/9398/how-does-eip-150-change-the-call-depth-attack'>*</a></sup> (all gas would be consumed well before reaching the 1024 call depth limit).</p>
                 
                   
