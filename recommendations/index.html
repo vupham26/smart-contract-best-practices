@@ -1,4 +1,7 @@
 
+
+
+
 <!DOCTYPE html>
 <html lang="en" class="no-js">
   <head>
@@ -14,9 +17,22 @@
         <meta name="author" content="ConsenSys">
       
       
-        <link rel="shortcut icon" href="../images/favicon.ico">
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
       
-      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.10.3">
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.2.0">
     
     
       
@@ -24,17 +40,14 @@
       
     
     
-      <script src="../assets/javascripts/modernizr-e826f8942a.js"></script>
-    
-    
-      <link rel="stylesheet" href="../assets/stylesheets/application-9011e2d3f8.css">
+      <link rel="stylesheet" href="../assets/stylesheets/application.5d3fffba.css">
       
     
     
+      <script src="../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
       
-        
-        
-        
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
@@ -45,9 +58,6 @@
     
     
   </head>
-  
-  
-  
   
     <body>
   
@@ -69,7 +79,7 @@
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="https://github.com/ConsenSys/smart-contract-best-practices" title="Ethereum Smart Contract Best Practices" class="md-header-nav__button md-logo">
           
-            <i class="md-icon md-icon--home"></i>
+            <i class="md-icon"></i>
           
         </a>
       </div>
@@ -77,19 +87,24 @@
         <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
-        <span class="md-flex__ellipsis md-header-nav__title">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             
-              
+              <span class="md-header-nav__topic">
+                Ethereum Smart Contract Best Practices
+              </span>
+              <span class="md-header-nav__topic">
+                Recommendations for Smart Contract Security in Solidity
+              </span>
             
-            Recommendations for Smart Contract Security in Solidity
           
-        </span>
+        </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
         
-          <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
           
+            <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+            
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="search"></label>
   <div class="md-search__inner">
@@ -100,8 +115,8 @@
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result" data-md-lang-search="" data-md-lang-tokenizer="[\s\-]+">
-          <div class="md-search-result__meta" data-md-lang-result-none="No matching documents" data-md-lang-result-one="1 matching document" data-md-lang-result-other="# matching documents">
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
             Type to start searching
           </div>
           <ol class="md-search-result__list"></ol>
@@ -110,6 +125,7 @@
     </div>
   </div>
 </div>
+          
         
       </div>
       
@@ -121,7 +137,7 @@
   
 
 
-  <a href="https://github.com/ConsenSys/smart-contract-best-practices" title="Go to repository" class="md-source" data-md-source="github">
+  <a href="https://github.com/ConsenSys/smart-contract-best-practices/" title="Go to repository" class="md-source" data-md-source="github">
     
       <div class="md-source__icon">
         <svg viewBox="0 0 24 24" width="24" height="24">
@@ -143,6 +159,7 @@
     
     <div class="md-container">
       
+        
       
       
       <main class="md-main">
@@ -154,11 +171,11 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="drawer">
-    <div class="md-nav__button md-logo">
+    <span class="md-nav__button md-logo">
       
-        <i class="md-icon md-icon--home"></i>
+        <i class="md-icon"></i>
       
-    </div>
+    </span>
     Ethereum Smart Contract Best Practices
   </label>
   
@@ -169,7 +186,7 @@
   
 
 
-  <a href="https://github.com/ConsenSys/smart-contract-best-practices" title="Go to repository" class="md-source" data-md-source="github">
+  <a href="https://github.com/ConsenSys/smart-contract-best-practices/" title="Go to repository" class="md-source" data-md-source="github">
     
       <div class="md-source__icon">
         <svg viewBox="0 0 24 24" width="24" height="24">
@@ -239,6 +256,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#protocol-specific-recommendations" title="Protocol specific recommendations" class="md-nav__link">
+    Protocol specific recommendations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#external-calls" title="External Calls" class="md-nav__link">
     External Calls
   </a>
@@ -294,6 +318,34 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#dont-assume-contracts-are-created-with-zero-balance" title="Don't assume contracts are created with zero balance" class="md-nav__link">
+    Don't assume contracts are created with zero balance
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remember-that-on-chain-data-is-public" title="Remember that on-chain data is public" class="md-nav__link">
+    Remember that on-chain data is public
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#in-2-party-or-n-party-contracts-beware-of-the-possibility-that-some-participants-may-drop-offline-and-not-return" title="In 2-party or N-party contracts, beware of the possibility that some participants may "drop offline" and not return" class="md-nav__link">
+    In 2-party or N-party contracts, beware of the possibility that some participants may "drop offline" and not return
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solidity-specific-recommendations" title="Solidity specific recommendations" class="md-nav__link">
+    Solidity specific recommendations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#enforce-invariants-with-assert" title="Enforce invariants with assert()" class="md-nav__link">
     Enforce invariants with assert()
   </a>
@@ -322,29 +374,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#dont-assume-contracts-are-created-with-zero-balance" title="Don't assume contracts are created with zero balance" class="md-nav__link">
-    Don't assume contracts are created with zero balance
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#remember-that-on-chain-data-is-public" title="Remember that on-chain data is public" class="md-nav__link">
-    Remember that on-chain data is public
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#be-aware-of-the-tradeoffs-between-abstract-contracts-and-interfaces" title="Be aware of the tradeoffs between abstract contracts and interfaces" class="md-nav__link">
     Be aware of the tradeoffs between abstract contracts and interfaces
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#in-2-party-or-n-party-contracts-beware-of-the-possibility-that-some-participants-may-drop-offline-and-not-return" title="In 2-party or N-party contracts, beware of the possibility that some participants may "drop offline" and not return" class="md-nav__link">
-    In 2-party or N-party contracts, beware of the possibility that some participants may "drop offline" and not return
   </a>
   
 </li>
@@ -590,6 +621,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#protocol-specific-recommendations" title="Protocol specific recommendations" class="md-nav__link">
+    Protocol specific recommendations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#external-calls" title="External Calls" class="md-nav__link">
     External Calls
   </a>
@@ -645,6 +683,34 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#dont-assume-contracts-are-created-with-zero-balance" title="Don't assume contracts are created with zero balance" class="md-nav__link">
+    Don't assume contracts are created with zero balance
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remember-that-on-chain-data-is-public" title="Remember that on-chain data is public" class="md-nav__link">
+    Remember that on-chain data is public
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#in-2-party-or-n-party-contracts-beware-of-the-possibility-that-some-participants-may-drop-offline-and-not-return" title="In 2-party or N-party contracts, beware of the possibility that some participants may "drop offline" and not return" class="md-nav__link">
+    In 2-party or N-party contracts, beware of the possibility that some participants may "drop offline" and not return
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solidity-specific-recommendations" title="Solidity specific recommendations" class="md-nav__link">
+    Solidity specific recommendations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#enforce-invariants-with-assert" title="Enforce invariants with assert()" class="md-nav__link">
     Enforce invariants with assert()
   </a>
@@ -673,29 +739,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#dont-assume-contracts-are-created-with-zero-balance" title="Don't assume contracts are created with zero balance" class="md-nav__link">
-    Don't assume contracts are created with zero balance
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#remember-that-on-chain-data-is-public" title="Remember that on-chain data is public" class="md-nav__link">
-    Remember that on-chain data is public
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#be-aware-of-the-tradeoffs-between-abstract-contracts-and-interfaces" title="Be aware of the tradeoffs between abstract contracts and interfaces" class="md-nav__link">
     Be aware of the tradeoffs between abstract contracts and interfaces
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#in-2-party-or-n-party-contracts-beware-of-the-possibility-that-some-participants-may-drop-offline-and-not-return" title="In 2-party or N-party contracts, beware of the possibility that some participants may "drop offline" and not return" class="md-nav__link">
-    In 2-party or N-party contracts, beware of the possibility that some participants may "drop offline" and not return
   </a>
   
 </li>
@@ -789,6 +834,9 @@
                   <h1>Recommendations for Smart Contract Security in Solidity</h1>
                 
                 <p>This page demonstrates a number of solidity patterns which should generally be followed when writing smart contracts.</p>
+<h2 id="protocol-specific-recommendations">Protocol specific recommendations<a class="headerlink" href="#protocol-specific-recommendations" title="Permanent link">&para;</a></h2>
+<h3 id="_1"><!-- --><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>The following recommendations apply to the development of any contract system on Ethereum.</p>
 <h2 id="external-calls">External Calls<a class="headerlink" href="#external-calls" title="Permanent link">&para;</a></h2>
 <h3 id="use-caution-when-making-external-calls">Use caution when making external calls<a class="headerlink" href="#use-caution-when-making-external-calls" title="Permanent link">&para;</a></h3>
 <p>Calls to untrusted contracts can introduce several unexpected risks or errors. External calls may execute malicious code in that contract <em>or</em> any other contract that it depends upon. As such, every external call should be treated as a potential security risk. When it is not possible, or undesirable to remove external calls, use the recommendations in the rest of this section to minimize the danger.</p>
@@ -811,7 +859,7 @@
 </pre></div>
 
 <h3 id="dont-make-control-flow-assumptions-after-external-calls">Don't make control flow assumptions after external calls<a class="headerlink" href="#dont-make-control-flow-assumptions-after-external-calls" title="Permanent link">&para;</a></h3>
-<p>Whether using <em>raw calls</em> (of the form <code>someAddress.call()</code>) or <em>contract calls</em> (of the form <code>ExternalContract.someMethod()</code>), assume that malicious code will execute unless the untrusted. Even if <code>ExternalContract</code> is not malicious, malicious code can be executed by any contracts <em>it</em> calls. </p>
+<p>Whether using <em>raw calls</em> (of the form <code>someAddress.call()</code>) or <em>contract calls</em> (of the form <code>ExternalContract.someMethod()</code>), assume that malicious code might execute. Even if <code>ExternalContract</code> is not malicious, malicious code can be executed by any contracts <em>it</em> calls. </p>
 <p>One particular danger is malicious code may hijack the control flow, leading to race conditions. (See <a href="https://github.com/ConsenSys/smart-contract-best-practices/#race-conditions">Race Conditions</a> for a fuller discussion of this problem).</p>
 <p>If you are making a call to an untrusted external contract, <em>avoid state changes after the call</em>.</p>
 <h3 id="be-aware-of-the-tradeoffs-between-send-transfer-and-callvalue">Be aware of the tradeoffs between <code>send()</code>, <code>transfer()</code>, and <code>call.value()()</code><a class="headerlink" href="#be-aware-of-the-tradeoffs-between-send-transfer-and-callvalue" title="Permanent link">&para;</a></h3>
@@ -893,6 +941,22 @@ specific value transfers safe against reentrancy.</p>
 <span class="p">}</span>
 </pre></div>
 
+<h2 id="dont-assume-contracts-are-created-with-zero-balance">Don't assume contracts are created with zero balance<a class="headerlink" href="#dont-assume-contracts-are-created-with-zero-balance" title="Permanent link">&para;</a></h2>
+<p>An attacker can send wei to the address of a contract before it is created.  Contracts should not assume that its initial state contains a zero balance.  See <a href="https://github.com/ConsenSys/smart-contract-best-practices/issues/61">issue 61</a> for more details.</p>
+<h2 id="remember-that-on-chain-data-is-public">Remember that on-chain data is public<a class="headerlink" href="#remember-that-on-chain-data-is-public" title="Permanent link">&para;</a></h2>
+<p>Many applications require submitted data to be private up until some point in time in order to work. Games (eg. on-chain rock-paper-scissors) and auction mechanisms (eg. sealed-bid second-price auctions) are two major categories of examples. If you are building an application where privacy is an issue, take care to avoid requiring users to publish information too early.</p>
+<p>Examples:</p>
+<ul>
+<li>In rock paper scissors, require both players to submit a hash of their intended move first, then require both players to submit their move; if the submitted move does not match the hash throw it out.</li>
+<li>In an auction, require players to submit a hash of their bid value in an initial phase (along with a deposit greater than their bid value), and then submit their action bid value in the second phase.</li>
+<li>When developing an application that depends on a random number generator, the order should always be (1) players submit moves, (2) random number generated, (3) players paid out. The method by which random numbers are generated is itself an area of active research; current best-in-class solutions include Bitcoin block headers (verified through <a href="http://btcrelay.org">http://btcrelay.org</a>), hash-commit-reveal schemes (ie. one party generates a number, publishes its hash to "commit" to the value, and then reveals the value later) and <a href="http://github.com/randao/randao">RANDAO</a>.</li>
+<li>If you are implementing a frequent batch auction, a hash-commit scheme is also desirable.</li>
+</ul>
+<h2 id="in-2-party-or-n-party-contracts-beware-of-the-possibility-that-some-participants-may-drop-offline-and-not-return">In 2-party or N-party contracts, beware of the possibility that some participants may "drop offline" and not return<a class="headerlink" href="#in-2-party-or-n-party-contracts-beware-of-the-possibility-that-some-participants-may-drop-offline-and-not-return" title="Permanent link">&para;</a></h2>
+<p>Do not make refund or claim processes dependent on a specific party performing a particular action with no other way of getting the funds out. For example, in a rock-paper-scissors game, one common mistake is to not make a payout until both players submit their moves; however, a malicious player can "grief" the other by simply never submitting their move - in fact, if a player sees the other player's revealed move and determines that they lost, they have no reason to submit their own move at all. This issue may also arise in the context of state channel settlement. When such situations are an issue, (1) provide a way of circumventing non-participating participants, perhaps through a time limit, and (2) consider adding an additional economic incentive for participants to submit information in all of the situations in which they are supposed to do so.</p>
+<h2 id="solidity-specific-recommendations">Solidity specific recommendations<a class="headerlink" href="#solidity-specific-recommendations" title="Permanent link">&para;</a></h2>
+<h3 id="_2"><!-- --><a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>The following recommendations are specific to Solidity, but may also be instructive for developing smart contracts in other languages.</p>
 <h2 id="enforce-invariants-with-assert">Enforce invariants with <code>assert()</code><a class="headerlink" href="#enforce-invariants-with-assert" title="Permanent link">&para;</a></h2>
 <p>An assert guard triggers when an assertion fails - such as an invariant property changing. For example, the token to ether issuance ratio, in a token issuance contract, may be fixed. You can verify that this is the case at all times with an <code>assert()</code>. Assert guards should often be combined with other techniques, such as pausing the contract and allowing upgrades. (Otherwise, you may end up stuck, with an assertion that is always failing.)</p>
 <p>Example:</p>
@@ -935,21 +999,8 @@ specific value transfers safe against reentrancy.</p>
 <p>The attacker can do this by creating a contract, funding it with 1 wei, and invoking
 <code>selfdestruct(victimAddress)</code>.  No code is invoked in <code>victimAddress</code>, so it
 cannot be prevented.</p>
-<h2 id="dont-assume-contracts-are-created-with-zero-balance">Don't assume contracts are created with zero balance<a class="headerlink" href="#dont-assume-contracts-are-created-with-zero-balance" title="Permanent link">&para;</a></h2>
-<p>An attacker can send wei to the address of a contract before it is created.  Contracts should not assume that its initial state contains a zero balance.  See <a href="https://github.com/ConsenSys/smart-contract-best-practices/issues/61">issue 61</a> for more details.</p>
-<h2 id="remember-that-on-chain-data-is-public">Remember that on-chain data is public<a class="headerlink" href="#remember-that-on-chain-data-is-public" title="Permanent link">&para;</a></h2>
-<p>Many applications require submitted data to be private up until some point in time in order to work. Games (eg. on-chain rock-paper-scissors) and auction mechanisms (eg. sealed-bid second-price auctions) are two major categories of examples. If you are building an application where privacy is an issue, take care to avoid requiring users to publish information too early.</p>
-<p>Examples:</p>
-<ul>
-<li>In rock paper scissors, require both players to submit a hash of their intended move first, then require both players to submit their move; if the submitted move does not match the hash throw it out.</li>
-<li>In an auction, require players to submit a hash of their bid value in an initial phase (along with a deposit greater than their bid value), and then submit their action bid value in the second phase.</li>
-<li>When developing an application that depends on a random number generator, the order should always be (1) players submit moves, (2) random number generated, (3) players paid out. The method by which random numbers are generated is itself an area of active research; current best-in-class solutions include Bitcoin block headers (verified through <a href="http://btcrelay.org">http://btcrelay.org</a>), hash-commit-reveal schemes (ie. one party generates a number, publishes its hash to "commit" to the value, and then reveals the value later) and <a href="http://github.com/randao/randao">RANDAO</a>.</li>
-<li>If you are implementing a frequent batch auction, a hash-commit scheme is also desirable.</li>
-</ul>
 <h2 id="be-aware-of-the-tradeoffs-between-abstract-contracts-and-interfaces">Be aware of the tradeoffs between abstract contracts and interfaces<a class="headerlink" href="#be-aware-of-the-tradeoffs-between-abstract-contracts-and-interfaces" title="Permanent link">&para;</a></h2>
-<p>Both interfaces and abstract contracts provide one with a customizable and re-usable approach for smart contracts. Interfaces, which were introduced in Solidity 0.4.11, are similar to abstract contracts but cannot have any functions implemented. Interfaces also have limitations such as not being able to access storage or inherit from other interfaces which generally makes abstract contracts more practical. Although, Interfaces are certainly useful for designing contracts prior to implementation. Additionally, it is important to keep in mind that if a contract inherits from an abstract contract it must implement all non-implemented functions via overriding or it will be abstract as well.</p>
-<h2 id="in-2-party-or-n-party-contracts-beware-of-the-possibility-that-some-participants-may-drop-offline-and-not-return">In 2-party or N-party contracts, beware of the possibility that some participants may "drop offline" and not return<a class="headerlink" href="#in-2-party-or-n-party-contracts-beware-of-the-possibility-that-some-participants-may-drop-offline-and-not-return" title="Permanent link">&para;</a></h2>
-<p>Do not make refund or claim processes dependent on a specific party performing a particular action with no other way of getting the funds out. For example, in a rock-paper-scissors game, one common mistake is to not make a payout until both players submit their moves; however, a malicious player can "grief" the other by simply never submitting their move - in fact, if a player sees the other player's revealed move and determines that they lost, they have no reason to submit their own move at all. This issue may also arise in the context of state channel settlement. When such situations are an issue, (1) provide a way of circumventing non-participating participants, perhaps through a time limit, and (2) consider adding an additional economic incentive for participants to submit information in all of the situations in which they are supposed to do so.</p>
+<p>Both interfaces and abstract contracts provide one with a customizable and re-usable approach for smart contracts. Interfaces, which were introduced in Solidity 0.4.11, are similar to abstract contracts but cannot have any functions implemented. Interfaces also have limitations such as not being able to access storage or inherit from other interfaces which generally makes abstract contracts more practical. Although, interfaces are certainly useful for designing contracts prior to implementation. Additionally, it is important to keep in mind that if a contract inherits from an abstract contract it must implement all non-implemented functions via overriding or it will be abstract as well.</p>
 <h2 id="keep-fallback-functions-simple">Keep fallback functions simple<a class="headerlink" href="#keep-fallback-functions-simple" title="Permanent link">&para;</a></h2>
 <p><a href="http://solidity.readthedocs.io/en/latest/contracts.html#fallback-function">Fallback functions</a> are called when a contract is sent a message with no arguments (or when no function matches), and only has access to 2,300 gas when called from a <code>.send()</code> or <code>.transfer()</code>. If you wish to be able to receive Ether from a <code>.send()</code> or <code>.transfer()</code>, the most you can do in a fallback function is log an event. Use a proper function if a computation or more gas is required.</p>
 <div class="highlight"><pre><span></span><span class="c1">// bad</span>
@@ -1120,9 +1171,9 @@ contract AttackingContract {
       <div class="md-footer-copyright">
         
         powered by
-        <a href="http://www.mkdocs.org" title="MkDocs">MkDocs</a>
+        <a href="http://www.mkdocs.org">MkDocs</a>
         and
-        <a href="http://squidfunk.github.io/mkdocs-material/" title="Material for MkDocs">
+        <a href="https://squidfunk.github.io/mkdocs-material/">
           Material for MkDocs</a>
       </div>
       
@@ -1134,10 +1185,9 @@ contract AttackingContract {
       
     </div>
     
-      <script src="../assets/javascripts/application-f3ab9e5ff8.js"></script>
+      <script src="../assets/javascripts/application.6cdc17f0.js"></script>
       
-      
-      <script>app.initialize({url:{base:".."}})</script>
+      <script>app.initialize({version:"0.17.2",url:{base:".."}})</script>
       
     
     
